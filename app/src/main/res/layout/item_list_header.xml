@@ -1,0 +1,76 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="@dimen/spaceSmall">
+
+    <!-- Column 1: Sno -->
+    <TextView
+        android:id="@+id/tvSno"
+        style="@style/table_row_item"
+        android:layout_width="0dp"
+        android:layout_marginStart="@dimen/spaceSmall"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="@integer/snoWidthPercent"
+        tools:text="1" />
+
+    <!-- Column 2: Details -->
+    <TextView
+        android:id="@+id/tvDetails"
+        style="@style/table_row_item"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvSno"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="@integer/detailsWidthPercent"
+        tools:text="Yaw flange thickness" />
+
+    <!-- Column 3: Required -->
+    <TextView
+        android:id="@+id/tvRequired"
+        style="@style/table_row_item"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvDetails"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="@integer/requiredWidthPercent"
+        tools:text="156+5/-0" />
+
+    <!-- Column 4: Observation Value -->
+    <TextView
+        android:id="@+id/tvObservation"
+        style="@style/table_row_item"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvRequired"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="@integer/observationsWidthPercent"
+        tools:text="156.8" />
+
+    <!-- Column 5: Remarks -->
+    <TextView
+        android:id="@+id/tvRemarks"
+        style="@style/table_row_item"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvObservation"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="@integer/remarksWidthPercent"
+        tools:text="Vernier" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupViews"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="tvSno,tvDetails,tvObservation,tvRemarks,tvRequired" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Color -->
+    <color name="colorPrimary">#FF6500</color>
+    <color name="colorPrimaryDark">#DE5C06</color>
+    <color name="colorPrimaryVariant">#3700B3</color>
+    <color name="colorAccent">#ff6e40</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="colorTextPrimary">#FF000000</color>
+    <color name="hintColor">#80000000</color>
+    <color name="errorColor">#F44336</color>
+    <color name="black60">#99000000</color>
+
+    <!-- New Theme -->
+
+    <color name="primary">#FF6500</color> <!-- Vibrant Orange -->
+    <color name="primary_dark">#CC5200</color> <!-- Darker Orange -->
+    <color name="secondary">#00B8D4</color> <!-- Cyan (complementary to orange) -->
+    <color name="background">#FFFFFF</color> <!-- White background -->
+    <color name="error">#B00020</color> <!-- Red for errors -->
+    <color name="status_bar">#30FFFFFF</color> <!-- White background -->
+
+    <color name="primary_variant">#FF7A33</color> <!-- Lighter orange variant -->
+    <color name="secondary_variant">#0097A7</color> <!-- Darker Cyan -->
+    <color name="surface">#F2F2F2</color> <!-- Light grey surface -->
+    <color name="on_primary">#FFFFFF</color> <!-- White text on primary -->
+    <color name="on_secondary">#000000</color> <!-- Black text on secondary -->
+    <color name="on_background">#000000</color> <!-- Black text on background -->
+    <color name="on_error">#FFFFFF</color> <!-- White text on error -->
+
+    <color name="on_surface">#000000</color> <!-- Black text on surface -->
+    <color name="mtrl_scrim">#80000000</color> <!-- Semi-transparent black (50%) -->
+
+    <color name="primary_inverse">#FFFFFF</color> <!-- Inverse color for primary -->
+    <color name="primary_container">#FFAD80</color> <!-- Light orange for container -->
+    <color name="on_primary_container">#FF6500</color> <!-- Text on primary container -->
+    <color name="secondary_container">#80E5F2</color> <!-- Light cyan for container -->
+    <color name="on_secondary_container">#005963</color> <!-- Dark cyan text on secondary container -->
+    <color name="tertiary">#FFC107</color> <!-- Golden yellow for tertiary -->
+    <color name="on_tertiary">#000000</color> <!-- Black text on tertiary -->
+
+    <color name="tertiary_container">#FFE082</color> <!-- Light amber for tertiary container -->
+    <color name="on_tertiary_container">#000000</color> <!-- Black text on tertiary container -->
+    <color name="surface_variant">#E0E0E0</color> <!-- Medium grey for surface variant -->
+    <color name="on_surface_variant">#000000</color> <!-- Black text on surface variant -->
+    <color name="inverse_surface">#121212</color> <!-- Dark surface -->
+    <color name="inverse_on_surface">#FFFFFF</color> <!-- White on inverse surface -->
+    <color name="outline">#757575</color> <!-- Grey for outlines -->
+
+    <color name="error_container">#FBC02D</color> <!-- Yellow for error container -->
+    <color name="on_error_container">#000000</color> <!-- Black text on error container -->
+
+</resources>

@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="table_row_item" parent="@android:style/TextAppearance.Small">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/textMedium</item>
+        <item name="android:padding">@dimen/spaceXSmall</item>
+        <item name="android:fontFamily">@font/clashgrotesk_regular</item>
+
+    </style>
+
+    <style name="card_header_item" parent="@android:style/TextAppearance.Small">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/textSmall</item>
+        <item name="android:padding">@dimen/spaceXSmall</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="card_item">
+        <item name="cardCornerRadius">@dimen/spaceXSmall</item>
+        <item name="cardUseCompatPadding">true</item>
+        <item name="contentPadding">@dimen/contentPadding</item>
+    </style>
+
+    <style name="header">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/textMedium</item>
+        <item name="android:padding">@dimen/spaceMedium</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/clashgrotesk_bold</item>
+    </style>
+
+    <style name="description">
+        <item name="android:gravity">start</item>
+        <item name="android:textSize">@dimen/textSmall</item>
+        <item name="android:padding">@dimen/spaceMedium</item>
+    </style>
+
+    <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowContentOverlay">@color/white</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowAnimationStyle">@style/DialogSlideAnimation</item>
+        <item name="android:windowCloseOnTouchOutside">false</item>
+    </style>
+
+    <style name="DialogSlideAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_up_dialog</item>
+        <item name="android:windowExitAnimation">@anim/slide_down_dialog</item>
+    </style>
+
+    <style name="TextGroupHeader">
+        <item name="android:gravity">start</item>
+        <item name="android:textSize">@dimen/textMedium</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/clashgrotesk_bold</item>
+    </style>
+
+    <!--   New styles    -->
+    <style name="TextAppearance.App.Body" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">@dimen/textMedium</item>
+        <item name="android:textColor">@color/colorTextPrimary</item>
+    </style>
+
+    <style name="TextAppearance.App.Header" parent="TextAppearance.AppCompat.Large">
+        <item name="android:textSize">@dimen/textXLarge</item>
+        <item name="android:textColor">@color/colorTextPrimary</item>
+    </style>
+
+    <style name="TextAppearance.App.Title" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">@dimen/textLarge</item>
+        <item name="android:textColor">@color/colorTextPrimary</item>
+    </style>
+
+    <style name="TextAppearance.App.Subtitle" parent="TextAppearance.AppCompat.Subhead">
+        <item name="android:textSize">@dimen/textMedium</item>
+        <item name="android:textColor">@color/colorTextPrimary</item>
+    </style>
+
+    <style name="Widget.MyApp.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <!-- Box background color (dark surface) -->
+        <item name="boxBackgroundColor">?attr/colorSurface</item>
+
+        <!-- Box stroke color when the field is focused -->
+        <item name="boxStrokeColor">?attr/colorPrimary</item>
+
+        <!-- Stroke width when the field is focused -->
+        <item name="boxStrokeWidthFocused">2dp</item>
+
+        <!-- Stroke width when the field is not focused -->
+        <item name="boxStrokeWidth">1dp</item>
+
+        <!-- Hint text color -->
+        <item name="hintTextColor">?attr/colorOnSurfaceVariant</item>
+
+        <!-- Text color inside the TextInputEditText -->
+        <item name="android:textColor">?attr/colorOnSurface</item>
+
+        <!-- Helper/error message text color -->
+        <item name="helperTextTextColor">?attr/colorOnSurfaceVariant</item>
+
+        <!-- Error text color -->
+        <item name="errorTextColor">?attr/colorError</item>
+
+        <!-- Error icon tint color -->
+        <item name="errorIconTint">?attr/colorError</item>
+
+        <!-- Counter text color -->
+        <item name="counterTextColor">?attr/colorOnSurfaceVariant</item>
+
+        <!-- Counter overflow text color (when max characters exceeded) -->
+        <item name="counterOverflowTextColor">?attr/colorError</item>
+
+        <!-- Hint animation duration -->
+        <item name="hintAnimationEnabled">true</item>
+
+        <!-- Text cursor color (linked with TextInputEditText's cursor drawable) -->
+        <item name="android:textCursorDrawable">@drawable/edit_text_cursor</item>
+
+        <!-- Icon tint (like password toggle) -->
+        <item name="endIconTint">?attr/colorOnSurface</item>
+    </style>
+
+
+    <style name="CustomToolbarStyle">
+        <item name="backgroundTint">@color/colorPrimary</item>
+        <item name="titleTextColor">@color/white</item>
+        <item name="subtitleTextColor">@color/white</item>
+        <item name="navigationIconTint">@color/white</item>
+    </style>
+
+    <style name="Widget.MyApp.MaterialCardView" parent="Widget.MaterialComponents.CardView">
+        <!-- Background color for the card (dark surface) -->
+        <item name="cardBackgroundColor">?attr/colorSurface</item>
+
+        <!-- Stroke color for the card (border color) -->
+        <!--<item name="strokeColor">?attr/colorPrimary</item>-->
+
+        <!-- Stroke width for the card (border thickness) -->
+        <!--<item name="strokeWidth">2dp</item>-->
+
+        <!-- Elevation (shadow) of the card -->
+        <item name="cardElevation">4dp</item>
+
+        <!-- Corner radius for the card -->
+        <item name="cardCornerRadius">12dp</item>
+
+        <!-- Ripple effect when card is clicked -->
+        <item name="rippleColor">?attr/colorOnPrimary</item>
+
+        <!-- Card padding -->
+        <item name="contentPadding">16dp</item>
+
+        <!-- Text color inside card content -->
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+
+    <!--  New Theme styles -->
+    <style name="PrimaryButton" parent="Widget.MaterialComponents.Button">
+        <!-- Background color for button -->
+        <item name="android:layout_height">@dimen/buttonHeight</item>
+        <!-- Background color for button -->
+        <item name="backgroundTint">?attr/colorPrimary</item>
+
+        <!-- Text color on button -->
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+
+        <!-- Ripple effect color (when button is clicked) -->
+        <item name="rippleColor">?attr/colorOnPrimary</item>
+
+        <!-- Elevation for Material buttons -->
+        <item name="android:elevation">4dp</item>
+
+        <!-- Shape appearance of the button (rounded corners) -->
+        <item name="shapeAppearance">@style/ShapeAppearance.MaterialComponents.SmallComponent</item>
+
+        <!-- Padding inside the button -->
+        <item name="android:padding">12dp</item>
+
+        <!-- Font style for button text -->
+        <item name="android:textAppearance">?attr/textAppearanceButton</item>
+    </style>
+
+    <style name="Widget.MyApp.EditText" parent="Widget.MaterialComponents.TextInputEditText.FilledBox">
+        <!-- Text color inside EditText -->
+        <item name="android:textColor">?attr/colorOnSurface</item>
+
+        <!-- Hint text color -->
+        <item name="android:textColorHint">?attr/colorOnSurfaceVariant</item>
+
+        <!-- Background color of the EditText (dark surface) -->
+        <item name="boxBackgroundColor">?attr/colorSurface</item>
+
+        <!-- Outline or underline color when the EditText is focused -->
+        <item name="boxStrokeColor">?attr/colorPrimary</item>
+
+        <!-- Ripple color when the EditText is clicked -->
+        <item name="rippleColor">?attr/colorPrimary</item>
+
+        <!-- Text cursor color -->
+        <item name="android:textCursorDrawable">@drawable/edit_text_cursor</item>
+
+        <!-- EditText Padding -->
+        <item name="android:padding">12dp</item>
+
+        <!-- Text appearance for the input text -->
+        <item name="android:textAppearance">?attr/textAppearanceBody1</item>
+    </style>
+
+    <!--Text Styles -->
+    <style name="LinkTextStyle">
+        <item name="android:textSize">@dimen/textSmall</item>
+        <item name="android:textColor">@color/colorTextPrimary</item>
+        <item name="android:textColorLink">@color/colorPrimary</item>
+    </style>
+
+    <style name="textAppearanceHeadline1" parent="@style/TextAppearance.MaterialComponents.Headline1">
+        <item name="fontFamily">@font/clashgrotesk_regular</item>
+    </style>
+
+    <style name="textAppearanceHeadline2" parent="@style/TextAppearance.MaterialComponents.Headline2">
+        <item name="fontFamily">@font/clashgrotesk_regular</item>
+    </style>
+
+    <style name="textAppearanceHeadline3" parent="@style/TextAppearance.MaterialComponents.Headline3">
+        <item name="fontFamily">@font/clashgrotesk_regular</item>
+    </style>
+
+    <style name="textAppearanceHeadline4" parent="@style/TextAppearance.MaterialComponents.Headline4">
+        <item name="fontFamily">@font/clashgrotesk_regular</item>
+    </style>
+
+    <style name="textAppearanceHeadline5" parent="@style/TextAppearance.MaterialComponents.Headline5">
+        <item name="fontFamily">@font/clashgrotesk_regular</item>
+    </style>
+
+    <style name="textAppearanceHeadline6" parent="@style/TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/clashgrotesk_semibold</item>
+    </style>
+
+    <style name="textAppearanceSubtitle1" parent="@style/TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">@font/clashgrotesk_regular</item>
+    </style>
+
+    <style name="textAppearanceSubtitle2" parent="@style/TextAppearance.MaterialComponents.Subtitle2">
+        <item name="fontFamily">@font/clashgrotesk_semibold</item>
+    </style>
+
+    <style name="textAppearanceBody1" parent="@style/TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">@font/clashgrotesk_regular</item>
+    </style>
+
+    <style name="textAppearanceBody2" parent="@style/TextAppearance.MaterialComponents.Body2">
+        <item name="fontFamily">@font/clashgrotesk_regular</item>
+    </style>
+
+    <style name="textAppearanceCaption" parent="@style/TextAppearance.MaterialComponents.Caption">
+        <item name="fontFamily">@font/clashgrotesk_regular</item>
+    </style>
+
+    <style name="textAppearanceButton" parent="@style/TextAppearance.MaterialComponents.Button">
+        <item name="fontFamily">@font/clashgrotesk_semibold</item>
+    </style>
+
+    <style name="textAppearanceOverline" parent="@style/TextAppearance.MaterialComponents.Overline">
+        <item name="fontFamily">@font/clashgrotesk_regular</item>
+    </style>
+
+    <style name="IconTextButtonStyle" parent="Widget.MaterialComponents.Button">
+        <!-- Button background and text appearance -->
+        <item name="android:backgroundTint">@color/primary</item>
+        <item name="android:textColor">@color/on_primary</item>
+        <item name="icon">@drawable/baseline_check_circle_24</item> <!-- Your icon here -->
+        <item name="iconGravity">textStart</item> <!-- Position the icon at the start -->
+        <item name="iconPadding">8dp</item> <!-- Padding between the icon and the text -->
+        <item name="iconSize">24dp</item> <!-- Icon size -->
+        <item name="android:textSize">16sp</item> <!-- Text size -->
+        <item name="cornerRadius">24dp</item> <!-- Rounded corners for the button -->
+        <item name="android:minHeight">48dp</item> <!-- Minimum height for the button -->
+    </style>
+
+</resources>
