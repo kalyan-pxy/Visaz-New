@@ -11,6 +11,7 @@ val remoteModule = module {
     single(named("HTTP_CLIENT")) {
         HttpClientFactory(
             BuildConfig.DEBUG,
+            get()
         )
     }
     single(named("SERVICE_FACTORY")) { ServiceFactory(BuildConfig.SERVER_URL) }

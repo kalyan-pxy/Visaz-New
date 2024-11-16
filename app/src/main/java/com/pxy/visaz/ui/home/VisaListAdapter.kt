@@ -35,7 +35,7 @@ open class VisaListAdapter(
                 visaImage.loadImage(visaModel.imageUrl.orEmpty())
                 visaTitle.text = "${visaModel.visaType} - ${visaModel.country}"
                 visaSubTitle.apply {
-                    text = context.getString(R.string.label_get_on, visaModel.getOnDate)
+                    text = context.getString(R.string.label_get_on, visaModel.processingTime)
                 }
                 root.setOnClickListener {
                     onItemClickListener.invoke(visaModel)

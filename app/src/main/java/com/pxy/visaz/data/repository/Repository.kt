@@ -3,6 +3,7 @@ package com.pxy.visaz.data.repository
 
 import com.pxy.visaz.core.model.BaseModel
 import com.pxy.visaz.core.model.CreatePasswordModel
+import com.pxy.visaz.core.model.ErrorModel
 import com.pxy.visaz.core.model.LoginModel
 import com.pxy.visaz.core.model.SignUpModel
 import com.pxy.visaz.core.model.User
@@ -13,8 +14,8 @@ import com.pxy.visaz.data.local.LocalDataSource
 import com.pxy.visaz.data.mapper.convertToInspectionMap
 import com.pxy.visaz.data.mapper.generateErrorModel
 import com.pxy.visaz.data.mapper.inspectionHeaderOptions
+import com.pxy.visaz.data.mapper.mapVisas
 import com.pxy.visaz.data.mapper.toDto
-import com.pxy.visaz.data.mapper.visaApplicationList
 import com.pxy.visaz.data.remote.RemoteDataSource
 import com.pxy.visaz.domain.IRepository
 import com.pxy.visaz.domain.model.InspectionDetails
@@ -95,6 +96,9 @@ class Repository(
             AppPreferenceHelper.user = User(
                 loginRequestModel.email
             )
+            result.body()?.let {
+                localDataSource.storeTokens(it)
+            }
             BaseModel(
                 isSuccessful = true,
                 model = LoginModel(true, result.body()?.message.orEmpty())
@@ -145,12 +149,21 @@ class Repository(
         }
     }
 
-    override fun loadVisas(): BaseModel<List<VisaApplicationModel>> {
-        //val result = remoteDataSource.appService.createPassword(createPasswordRequestModel)
-        val result = visaApplicationList
+    override suspend fun loadVisas(): BaseModel<List<VisaApplicationModel>> {
+        val result = remoteDataSource.appService.getVisaCountries()
+        //val result = visaApplicationList
+        result.body()?.let {
+            return BaseModel(
+                isSuccessful = true,
+                model = mapVisas(it)
+            )
+        }
         return BaseModel(
-            isSuccessful = true,
-            model = visaApplicationList
+            isSuccessful = false,
+            errorModel = ErrorModel(
+                result.code(),
+                "Something went wrong"
+            )
         )
     }
 }

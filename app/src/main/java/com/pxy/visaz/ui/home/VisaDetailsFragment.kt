@@ -6,12 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
-import com.google.android.material.appbar.AppBarLayout
+import androidx.navigation.fragment.findNavController
 import com.pxy.visaz.R
 import com.pxy.visaz.core.AppConstants
 import com.pxy.visaz.core.PopBackFragment
 import com.pxy.visaz.core.extension.formatPrice
 import com.pxy.visaz.core.extension.loadImage
+import com.pxy.visaz.core.extension.showDatePicker
 import com.pxy.visaz.core.model.visa.VisaApplicationModel
 import com.pxy.visaz.databinding.FragmentVisaDetailsBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -33,6 +34,29 @@ class VisaDetailsFragment : PopBackFragment() {
     private fun initViews() {
         initToolbar()
         updateVisaDetails()
+        initListeners()
+    }
+
+    private fun initListeners() {
+        with(binding) {
+            ivAddTravellers.setOnClickListener {
+                visaViewModel.addTraveller()
+            }
+            ivRemoveTravellers.setOnClickListener {
+                visaViewModel.removeTraveller()
+            }
+            btnStartVisa.setOnClickListener {
+                showDatePicker {
+                    toast("Selected date: $it")
+                    val bundle = arguments ?: Bundle()
+                    bundle.putString(AppConstants.EXTRA_SELECTED_DATE, it)
+                    findNavController().navigate(
+                        R.id.action_visaDetailsFragment_to_visaSubmitFormFragment,
+                        bundle
+                    )
+                }
+            }
+        }
     }
 
     private fun updateVisaDetails() {
@@ -41,7 +65,8 @@ class VisaDetailsFragment : PopBackFragment() {
                 ivCountyHeader.loadImage(it.imageUrl)
                 tvInfoMessage.text =
                     getString(R.string.label_visa_info, getString(R.string.app_name), it.country)
-                tvVisaOnDate.text = getString(R.string.label_visa_on, it.getOnDate)
+                tvVisaDescription.text = it.description
+                tvVisaOnDate.text = getString(R.string.label_visa_on, it.processingTime)
                 tvVisaPriceTitle.text = getString(R.string.label_visa_fee, "1")
                 tvOurPriceTitle.text = getString(R.string.label_our_fee, "1")
                 tvVisaPrice.text = it.applicationFee.visaFee.formatPrice()
@@ -61,7 +86,7 @@ class VisaDetailsFragment : PopBackFragment() {
             }
             var isShow = true
             var scrollRange = -1
-            appbar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { barLayout, verticalOffset ->
+            appbar.addOnOffsetChangedListener { barLayout, verticalOffset ->
                 if (scrollRange == -1) {
                     scrollRange = barLayout?.totalScrollRange!!
                 }
@@ -75,23 +100,13 @@ class VisaDetailsFragment : PopBackFragment() {
                     tvHeader.text = visaApplicationModel?.country
                     tvHeader.isVisible = true
                 }
-            })
+            }
         }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         readIntentData()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        hideSystemUI()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        showSystemUI()
     }
 
     private fun readIntentData() {
@@ -108,7 +123,9 @@ class VisaDetailsFragment : PopBackFragment() {
     }
 
     private fun initObservers() {
-
+        visaViewModel.totalTravelers.observe(viewLifecycleOwner) {
+            binding.tvTotalTravellers.text = it.toString()
+        }
     }
 
     override fun onCreateView(

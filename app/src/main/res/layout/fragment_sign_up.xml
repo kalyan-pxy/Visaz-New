@@ -66,6 +66,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textPersonName"
+                    android:text="KalyanKumar"
                     android:maxLength="@integer/username_max_length" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -86,6 +87,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textEmailAddress"
+                    android:text="kalyanvennu3@gmail.com"
                     android:maxLength="@integer/username_max_length" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -105,6 +107,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="phone"
+                    android:text="8142991431"
                     android:maxLength="@integer/phone_max_length" />
             </com.google.android.material.textfield.TextInputLayout>
 

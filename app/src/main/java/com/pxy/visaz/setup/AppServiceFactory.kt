@@ -4,7 +4,7 @@ import com.pxy.visaz.data.remote.AppService
 
 class AppServiceFactory(private val httpClientFactory: HttpClientFactory) {
 
-    fun getAppService(serviceFactory : ServiceFactory): AppService {
+    fun getAppService(serviceFactory: ServiceFactory): AppService {
         val httpClient = httpClientFactory.abstractClient.newBuilder()
             //.addInterceptor(NetworkModule.basicHeaderInterceptor())
             .build()

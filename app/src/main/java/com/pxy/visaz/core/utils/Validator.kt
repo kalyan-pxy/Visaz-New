@@ -11,7 +11,7 @@ class Validator {
     // Method to validate the username
     fun isValidName(name: String): Boolean {
         // Username must be at least 3 characters long and should not contain spaces
-        return name.length >= 3 && !name.contains(" ")
+        return name.length >= 3
     }
 
     // Method to validate the password

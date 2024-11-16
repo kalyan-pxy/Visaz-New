@@ -61,7 +61,7 @@ class VisasFragment : BaseFragment() {
         }
     }
 
-    fun initVisaList(list: List<VisaApplicationModel>) {
+    private fun initVisaList(list: List<VisaApplicationModel>) {
         with(binding) {
             val adpate = VisaListAdapter(list) {
                 findNavController().navigate(R.id.action_visasFragment_to_details,
@@ -85,6 +85,15 @@ class VisasFragment : BaseFragment() {
         visaViewModel.visasObserver.observe(viewLifecycleOwner) {
             it?.let {
                 initVisaList(it)
+            }
+        }
+        visaViewModel.loaderObserver.observe(viewLifecycleOwner) {
+            it?.let { loading ->
+                if (loading) {
+                    showProgressDialog()
+                } else {
+                    hideProgressDialog()
+                }
             }
         }
     }

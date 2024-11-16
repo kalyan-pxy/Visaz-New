@@ -1,5 +1,10 @@
 package com.pxy.visaz.setup
 
+import android.content.Context
+import android.content.Intent
+import com.pxy.visaz.core.AppConstants
+import com.pxy.visaz.data.local.AppPreferenceHelper
+import com.pxy.visaz.ui.authentication.PreAuthActivity
 import okhttp3.Interceptor
 import okhttp3.logging.HttpLoggingInterceptor
 
@@ -9,28 +14,5 @@ object NetworkModule {
         val loggingInterceptor = HttpLoggingInterceptor()
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
         return loggingInterceptor
-    }
-
-    /*fun basicHeaderInterceptor() = Interceptor {
-        val request = it.request().newBuilder()
-            .addHeader(
-                AppConstant.AUTHORIZATION,
-                "Bearer ${BluboyPreferenceHelper.getAuthKey()}"
-            )
-            .addHeader(AppConstant.APPVERSION, BuildConfig.VERSION_NAME)
-            .addHeader(AppConstant.X_API_KEY, BuildConfig.X_API_KEY)
-            .addHeader(
-                AppConstant.NOTIFICATION_PERMISSION_STATUS,
-                BluboyPreferenceHelper.getNotificationPermissionStatus().toString()
-            )
-            .build()
-        it.proceed(request)
-    }*/
-
-    fun createHeadersAriaInterceptor() = Interceptor {
-        val request = it.request().newBuilder()
-            .addHeader("Content-Type", "application/x-www-form-urlencoded")
-            .build()
-        it.proceed(request)
     }
 }

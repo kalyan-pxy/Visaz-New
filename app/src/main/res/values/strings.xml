@@ -43,5 +43,24 @@
     <string name="label_our_fee">Our fee X %s</string>
     <string name="label_visa_price_note">You pay %s only when we deliver your visa on time</string>
     <string name="label_visa_info">%1$s is officially authorized by Government of %2$s</string>
+    <string name="error_message_unauthorized">You are not authorized to access this resource. Please log in and try again.</string>
+    <string name="google_login">Google Login</string>
+    <string name="hint_selected_date">Selected date</string>
+    <string name="hint_mother_name">Mother\'s name</string>
+    <string name="hint_father_name">Father\'s name</string>
+    <string name="hint_gender">Gender</string>
+    <string name="hint_country">Country</string>
+    <string name="label_application_form">Application Form</string>
+    <string name="label_submit_application">Submit Application</string>
+    <string name="label_upload_visa_required_images">Upload Visa Required Images</string>
+    <string name="label_profile_image_upload">Click here to upload profile image</string>
+    <string name="label_passport_image_upload">Click here to upload passport image</string>
 
+    <string name="visa_basic_details_display">Date: %1$s\nMother Name: %2$s\nFather Name: %3$s\nGender: %4$s\nCountry: %5$s</string>
+
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
 </resources>

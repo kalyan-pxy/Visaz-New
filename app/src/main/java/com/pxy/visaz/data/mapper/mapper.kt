@@ -2,16 +2,17 @@ package com.pxy.visaz.data.mapper
 
 import com.google.gson.Gson
 import com.pxy.visaz.core.model.ErrorModel
-import com.pxy.visaz.core.model.VisaModel
 import com.pxy.visaz.core.model.visa.ApplicationFeeModel
 import com.pxy.visaz.core.model.visa.VisaApplicationModel
 import com.pxy.visaz.data.dtos.InspectionDto
 import com.pxy.visaz.data.remote.model.InspectionDetailsModel
+import com.pxy.visaz.data.remote.model.VisasResponse
 import com.pxy.visaz.domain.model.InspectionDetails
 import com.pxy.visaz.domain.model.InspectionHeaderOptions
 import com.pxy.visaz.domain.model.InspectionItemType
 import com.pxy.visaz.domain.model.response.ErrorResponse
 import okhttp3.ResponseBody
+import okhttp3.internal.toImmutableList
 
 fun InspectionDetailsModel.toDto(key: String): InspectionDto =
     InspectionDto(
@@ -106,6 +107,34 @@ fun generateErrorModel(code: Int, errorBody: ResponseBody?): ErrorModel {
     )
 }
 
+fun mapVisas(visasResponse: List<VisasResponse>): List<VisaApplicationModel> {
+    val visaApplicationModelList: ArrayList<VisaApplicationModel> = arrayListOf()
+
+    visasResponse.toImmutableList().forEach { visa ->
+        visa.visaInfo?.types?.forEach {
+            visaApplicationModelList.add(
+                VisaApplicationModel(
+                    visaType = it.type.orEmpty(),
+                    country = visa.name.orEmpty(),
+                    imageUrl = visa.bannerImageUrl.orEmpty(),
+                    requirements = it.requirements.toImmutableList().orEmpty(),
+                    processingTime = it.processingTime.orEmpty(),
+                    description = visa.description,
+                    validityPeriod = "",
+                    applicationFee = ApplicationFeeModel(
+                        visaFee = it.fees?.applicationFee?.toDouble() ?: 0.0,
+                        companyFeeActual = it.fees?.serviceFee?.toDouble() ?: 0.0,
+                        companyFeeNow = it.fees?.serviceFee?.toDouble() ?: 0.0,
+                        note = ""
+                    ),
+                    getOnDate = ""
+                )
+            )
+        }
+    }
+    return visaApplicationModelList
+}
+
 val visaApplicationList = listOf(
     VisaApplicationModel(
         visaType = "Work Visa",
@@ -119,8 +148,6 @@ val visaApplicationList = listOf(
         ),
         processingTime = "10 working days",
         validityPeriod = "2 years",
-        applyLink = "https://example.com/apply/usa-work-visa",
-        contactInformation = "info@usa-visa.com",
         applicationFee = ApplicationFeeModel(
             visaFee = 15000.0,
             companyFeeActual = 4000.0,
@@ -141,8 +168,6 @@ val visaApplicationList = listOf(
         ),
         processingTime = "12 working days",
         validityPeriod = "6 months",
-        applyLink = "https://example.com/apply/canada-business-visa",
-        contactInformation = "info@canada-visa.com",
         applicationFee = ApplicationFeeModel(
             visaFee = 10000.0,
             companyFeeActual = 3000.0,
@@ -163,8 +188,6 @@ val visaApplicationList = listOf(
         ),
         processingTime = "14 working days",
         validityPeriod = "12 months",
-        applyLink = "https://example.com/apply/australia-business-visa",
-        contactInformation = "info@australia-visa.com",
         applicationFee = ApplicationFeeModel(
             visaFee = 12000.0,
             companyFeeActual = 3500.0,
@@ -185,8 +208,6 @@ val visaApplicationList = listOf(
         ),
         processingTime = "15 working days",
         validityPeriod = "6 months",
-        applyLink = "https://example.com/apply/uk-tourist-visa",
-        contactInformation = "info@uk-visa.com",
         applicationFee = ApplicationFeeModel(
             visaFee = 9000.0,
             companyFeeActual = 5000.0,
@@ -207,8 +228,6 @@ val visaApplicationList = listOf(
         ),
         processingTime = "20 working days",
         validityPeriod = "1 year",
-        applyLink = "https://example.com/apply/new-zealand-student-visa",
-        contactInformation = "info@nz-visa.com",
         applicationFee = ApplicationFeeModel(
             visaFee = 20000.0,
             companyFeeActual = 5000.0,
@@ -229,8 +248,6 @@ val visaApplicationList = listOf(
         ),
         processingTime = "8 working days",
         validityPeriod = "2 years",
-        applyLink = "https://example.com/apply/singapore-work-visa",
-        contactInformation = "info@singapore-visa.com",
         applicationFee = ApplicationFeeModel(
             visaFee = 13000.0,
             companyFeeActual = 4500.0,

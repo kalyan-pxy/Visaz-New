@@ -113,5 +113,43 @@
         android:id="@+id/visaDetailsFragment"
         android:name="com.pxy.visaz.ui.home.VisaDetailsFragment"
         android:label="Visa Details"
-        tools:layout="@layout/fragment_visa_details"></fragment>
+        tools:layout="@layout/fragment_visa_details">
+        <action
+            android:id="@+id/action_visaDetailsFragment_to_visaSubmitFormFragment"
+            app:destination="@id/visaSubmitFormFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/visaSubmitFormFragment"
+        android:name="com.pxy.visaz.ui.applyvisa.VisaSubmitFormFragment"
+        android:label="Visa Submit Form"
+        tools:layout="@layout/fragment_visa_submit_form">
+        <action
+            android:id="@+id/action_visaSubmitFormFragment_to_visaImagesUploadFragment"
+            app:destination="@id/visaImagesUploadFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/visaImagesUploadFragment"
+        android:name="com.pxy.visaz.ui.applyvisa.VisaImagesUploadFragment"
+        android:label="Visa Images Upload"
+        tools:layout="@layout/fragment_visa_images_upload">
+        <action
+            android:id="@+id/action_visaImagesUploadFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

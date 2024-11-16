@@ -125,12 +125,13 @@
         <item name="endIconTint">?attr/colorOnSurface</item>
     </style>
 
+    <style name="AppDropdownMenu" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+    </style>
 
-    <style name="CustomToolbarStyle">
-        <item name="backgroundTint">@color/colorPrimary</item>
-        <item name="titleTextColor">@color/white</item>
-        <item name="subtitleTextColor">@color/white</item>
-        <item name="navigationIconTint">@color/white</item>
+    <style name="CustomToolbarStyle" parent="textAppearanceBody1">
+        <item name="titleTextColor">?colorOnSecondary</item>
+        <item name="subtitleTextColor">?colorOnSecondary</item>
+        <item name="navigationIconTint">?colorOnSecondary</item>
     </style>
 
     <style name="Widget.MyApp.MaterialCardView" parent="Widget.MaterialComponents.CardView">

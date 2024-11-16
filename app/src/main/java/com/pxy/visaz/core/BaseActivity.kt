@@ -1,18 +1,16 @@
 package com.pxy.visaz.core
 
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.View
-import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.IdRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
-import com.pxy.visaz.R
+import androidx.fragment.app.Fragment
 
 open class BaseActivity : AppCompatActivity() {
 
@@ -52,5 +50,16 @@ open class BaseActivity : AppCompatActivity() {
             it.statusBarColor = resources.getColor(android.R.color.transparent, null)
             it.setBackgroundDrawable(drawable)
         }*/
+    }
+
+    protected fun addFragment(
+        @IdRes containerViewId: Int, fragment: Fragment,
+        fragmentTag: String,
+    ) {
+        supportFragmentManager
+            .beginTransaction()
+            .add(containerViewId, fragment, fragmentTag)
+            .disallowAddToBackStack()
+            .commit()
     }
 }

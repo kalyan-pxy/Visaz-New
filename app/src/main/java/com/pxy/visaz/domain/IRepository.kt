@@ -20,5 +20,5 @@ interface IRepository {
     suspend fun signup(signUpRequestModel: SignUpRequestModel): BaseModel<SignUpModel>
     suspend fun createPassword(createPasswordRequestModel: CreatePasswordRequestModel): BaseModel<CreatePasswordModel>
     fun isLoggedInUser(): Boolean
-    fun loadVisas(): BaseModel<List<VisaApplicationModel>>
+    suspend fun loadVisas(): BaseModel<List<VisaApplicationModel>>
 }

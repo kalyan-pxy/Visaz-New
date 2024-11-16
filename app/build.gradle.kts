@@ -1,8 +1,10 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    id("org.jetbrains.kotlin.kapt")
-    id ("kotlin-parcelize")
+    //id("org.jetbrains.kotlin.kapt")
+    id("com.google.devtools.ksp")
+    id("kotlin-parcelize")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -37,12 +39,12 @@ android {
         }
     }
 
-    flavorDimensions("version")
     productFlavors {
+        flavorDimensions.add("version")
         create("dev") {
             dimension = "version"
-            
-            buildConfigField("String", "SERVER_URL", "\"https://visaz.in/\"")
+
+            buildConfigField("String", "SERVER_URL", "\"https://libkinhotelservices.com/\"")
         }
     }
 
@@ -83,11 +85,11 @@ dependencies {
     // Room
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
-    kapt(libs.androidx.room.compiler)
+    ksp(libs.androidx.room.compiler)
     annotationProcessor(libs.androidx.room.compiler)
 
     //Splash
-    implementation (libs.androidx.core.splashscreen)
+    implementation(libs.androidx.core.splashscreen)
 
     // Retrofit
     implementation(libs.retrofit)
@@ -98,10 +100,18 @@ dependencies {
     //security
     implementation(libs.androidx.security.crypto)
 
-    implementation (libs.glide)
+    implementation(libs.glide)
     // Skip this if you don't want to use integration libraries or configure Glide.
-    kapt(libs.compiler)
+    ksp(libs.compiler)
 
+    //Firebase
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
+
+    //Play Services
+    //implementation("com.google.android.gms:play-services-auth:21.2.0")
+    implementation("com.google.android.gms:play-services-auth:21.2.0")
+    implementation("androidx.credentials:credentials:1.3.0")
 
     // Koin
     implementation(libs.koin.core)
@@ -118,6 +128,6 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 }
 
-kapt {
+/*kapt {
     correctErrorTypes = true
-}
+}*/

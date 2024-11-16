@@ -11,8 +11,7 @@ data class VisaApplicationModel(
     val requirements: List<String>,     // List of requirements needed for the visa
     val processingTime: String,         // Estimated time for processing the visa application
     val validityPeriod: String,         // Duration for which the visa is valid (e.g., 30 days, 90 days)
-    val applyLink: String? = null,      // Link to apply for the visa online
-    val contactInformation: String? = null, // Contact info for further inquiries
     val applicationFee: ApplicationFeeModel, // Fee details
-    val getOnDate: String
+    val getOnDate: String,
+    val description: String? = null
 ): Parcelable

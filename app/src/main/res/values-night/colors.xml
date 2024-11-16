@@ -1,40 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#FF6500</color> <!-- Vibrant Orange (same for light and dark) -->
-    <color name="primary_dark">#CC5200</color> <!-- Darker Orange -->
-    <color name="secondary">#00B8D4</color> <!-- Cyan (complementary to orange) -->
-    <color name="background">#121212</color> <!-- Dark background for dark mode -->
-    <color name="error">#CF6679</color> <!-- Soft red for errors (material dark theme standard) -->
-    <color name="status_bar">#121212</color> <!-- White background -->
+    <!-- Primary Colors -->
+    <color name="colorPrimary">#FFAD80</color> <!-- Softened Orange -->
+    <color name="colorPrimaryDark">#A64B00</color> <!-- Darker Orange -->
+    <color name="colorPrimaryVariant">#FF7A33</color> <!-- Lighter Orange Variant -->
+    <color name="colorAccent">#ffab91</color> <!-- Muted Accent Color -->
+    <color name="black">#FFFFFFFF</color> <!-- White Text for Black replacement -->
+    <color name="white">#FF000000</color> <!-- Black for White Text replacement -->
+    <color name="colorTextPrimary">#FFFFFFFF</color> <!-- White Text -->
+    <color name="hintColor">#80FFFFFF</color> <!-- Lightened White for Hints -->
+    <color name="errorColor">#EF9A9A</color> <!-- Softer Red for Errors -->
+    <color name="black60">#99FFFFFF</color> <!-- Semi-transparent White -->
 
-    <color name="primary_variant">#FF7A33</color> <!-- Lighter orange variant -->
-    <color name="secondary_variant">#0097A7</color> <!-- Darker Cyan -->
-    <color name="surface">#1E1E1E</color> <!-- Dark surface color for UI elements -->
-    <color name="on_primary">#FFFFFF</color> <!-- White text on primary -->
-    <color name="on_secondary">#000000</color> <!-- Black text on secondary -->
-    <color name="on_background">#FFFFFF</color> <!-- White text on dark background -->
-    <color name="on_error">#000000</color> <!-- Black text on error background -->
+    <!-- New Theme Colors for Night Mode -->
+    <color name="primary">#FFAD80</color> <!-- Softened Orange for Dark Mode -->
+    <color name="primary_dark">#A64B00</color> <!-- Darker Orange for Night Mode -->
+    <color name="secondary">#0097A7</color> <!-- Muted Cyan for Secondary in Dark Mode -->
+    <color name="background">#121212</color> <!-- Dark Background for Night Mode -->
+    <color name="error">#CF6679</color> <!-- Softer Red for Errors in Dark Mode -->
+    <color name="status_bar">#1A000000</color> <!-- Darkened Status Bar -->
 
-    <color name="on_surface">#FFFFFF</color> <!-- White text on dark surface -->
-    <color name="mtrl_scrim">#000000</color> <!-- Scrim overlay, same as before -->
+    <color name="primary_variant">#FF7A33</color> <!-- Slightly lighter Orange variant -->
+    <color name="secondary_variant">#007C91</color> <!-- Dark Cyan variant -->
+    <color name="surface">#1F1F1F</color> <!-- Very Dark Grey Surface -->
+    <color name="on_primary">#000000</color> <!-- Black Text on Primary -->
+    <color name="on_secondary">#FFFFFF</color> <!-- White Text on Secondary -->
+    <color name="on_background">#FFFFFF</color> <!-- White Text on Background -->
+    <color name="on_error">#000000</color> <!-- Black Text on Error -->
 
-    <color name="primary_inverse">#121212</color> <!-- Dark background for inverse primary -->
-    <color name="primary_container">#FFAD80</color> <!-- Light orange for container -->
-    <color name="on_primary_container">#FF6500</color> <!-- Orange text on light container -->
-    <color name="secondary_container">#80E5F2</color> <!-- Light cyan for container -->
-    <color name="on_secondary_container">#005963</color> <!-- Dark cyan text on secondary container -->
-    <color name="tertiary">#FFC107</color> <!-- Golden yellow for tertiary (same as light mode) -->
-    <color name="on_tertiary">#000000</color> <!-- Black text on tertiary -->
+    <color name="on_surface">#FFFFFF</color> <!-- White Text on Dark Surface -->
+    <color name="mtrl_scrim">#CC000000</color> <!-- Darker Semi-Transparent Black -->
 
-    <color name="tertiary_container">#FFE082</color> <!-- Light amber for tertiary container -->
-    <color name="on_tertiary_container">#000000</color> <!-- Black text on tertiary container -->
-    <color name="surface_variant">#2C2C2C</color> <!-- Dark grey surface variant for UI elements -->
-    <color name="on_surface_variant">#FFFFFF</color> <!-- White text on dark surface variant -->
-    <color name="inverse_surface">#FFFFFF</color> <!-- Light inverse surface -->
-    <color name="inverse_on_surface">#000000</color> <!-- Dark text on inverse surface -->
-    <color name="outline">#757575</color> <!-- Grey for outlines (same as light mode) -->
+    <color name="primary_inverse">#1F1F1F</color> <!-- Dark Grey for Primary Inverse -->
+    <color name="primary_container">#5D4037</color> <!-- Darker Orange-Brown for Container -->
+    <color name="on_primary_container">#FFFFFF</color> <!-- White Text on Primary Container -->
+    <color name="secondary_container">#004D5A</color> <!-- Darker Cyan for Secondary Container -->
+    <color name="on_secondary_container">#80E5F2</color> <!-- Light Cyan Text on Dark Container -->
+    <color name="tertiary">#FFB74D</color> <!-- Muted Golden for Tertiary -->
+    <color name="on_tertiary">#000000</color> <!-- Black Text on Tertiary -->
 
-    <color name="error_container">#FBC02D</color> <!-- Yellow for error container (same as light) -->
-    <color name="on_error_container">#000000</color> <!-- Black text on error container -->
+    <color name="tertiary_container">#795548</color> <!-- Darkened Amber Container -->
+    <color name="on_tertiary_container">#FFFFFF</color> <!-- White Text on Tertiary Container -->
+    <color name="surface_variant">#333333</color> <!-- Dark Grey for Surface Variant -->
+    <color name="on_surface_variant">#FFFFFF</color> <!-- White Text on Surface Variant -->
+    <color name="inverse_surface">#F2F2F2</color> <!-- Light Surface for Inverse Dark -->
+    <color name="inverse_on_surface">#000000</color> <!-- Black on Light Inverse Surface -->
+    <color name="outline">#BDBDBD</color> <!-- Lighter Grey Outline -->
 
+    <color name="error_container">#FBC02D</color> <!-- Yellow for Error Container -->
+    <color name="on_error_container">#000000</color> <!-- Black Text on Error Container -->
 </resources>

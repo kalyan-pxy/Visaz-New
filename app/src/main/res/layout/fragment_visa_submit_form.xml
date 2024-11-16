@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.InspectionFragment">
+
+    <include
+        android:id="@+id/layoutHeader"
+        layout="@layout/include_header_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilSelectedDate"
+        style="@style/Widget.MyApp.TextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spaceMedium"
+        android:layout_marginTop="@dimen/spaceMedium"
+        android:enabled="false"
+        android:hint="@string/hint_selected_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutHeader">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etSelectedDate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPersonName"
+            android:maxLength="@integer/username_max_length" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilMotherName"
+        style="@style/Widget.MyApp.TextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spaceMedium"
+        android:layout_marginTop="@dimen/spaceMedium"
+        android:hint="@string/hint_mother_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilSelectedDate">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etMotherName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:maxLength="@integer/username_max_length" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilFatherName"
+        style="@style/Widget.MyApp.TextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spaceMedium"
+        android:layout_marginTop="@dimen/spaceMedium"
+        android:hint="@string/hint_father_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilMotherName">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etFatherName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:maxLength="@integer/username_max_length" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilGender"
+        style="@style/AppDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spaceMedium"
+        android:layout_marginTop="@dimen/spaceMedium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilFatherName">
+
+        <AutoCompleteTextView
+            android:id="@+id/etGender"
+            android:inputType="none"
+            android:focusable="false"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/hint_gender"
+            android:maxLength="@integer/phone_max_length" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilCountry"
+        style="@style/AppDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spaceMedium"
+        android:layout_marginTop="@dimen/spaceMedium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilGender">
+
+        <AutoCompleteTextView
+            android:id="@+id/etCountry"
+            android:inputType="none"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/hint_country"
+            android:maxLength="@integer/phone_max_length" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSubmit"
+        style="@style/PrimaryButton"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="@dimen/spaceMedium"
+        android:layout_marginTop="@dimen/spaceMedium"
+        android:text="@string/label_submit_application"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilCountry" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.pxy.visaz.data.remote
 
+import com.pxy.visaz.data.remote.model.VisasResponse
 import com.pxy.visaz.data.remote.model.InspectionResponse
 import com.pxy.visaz.domain.ApiConstants
 import com.pxy.visaz.domain.model.request.CreatePasswordRequestModel
@@ -32,4 +33,8 @@ interface AppService {
     suspend fun createPassword(
         @Body createPasswordRequestModel: CreatePasswordRequestModel
     ): Response<CreatePasswordResponseModel>
+
+    @GET(ApiConstants.COUNTRIES_ENDPOINT)
+    suspend fun getVisaCountries(
+    ): Response<List<VisasResponse>>
 }

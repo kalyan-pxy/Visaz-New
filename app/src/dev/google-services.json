@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "274969579456",
+    "project_id": "visaz-bfe10",
+    "storage_bucket": "visaz-bfe10.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:274969579456:android:9b53a51dc2e7f689b18225",
+        "android_client_info": {
+          "package_name": "com.pxy.visaz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuzYT1sNsnTkhgEPe0AWQljR7iGIj2w0A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
