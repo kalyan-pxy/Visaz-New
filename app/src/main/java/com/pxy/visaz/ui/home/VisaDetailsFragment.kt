@@ -12,7 +12,6 @@ import com.pxy.visaz.core.AppConstants
 import com.pxy.visaz.core.PopBackFragment
 import com.pxy.visaz.core.extension.formatPrice
 import com.pxy.visaz.core.extension.loadImage
-import com.pxy.visaz.core.extension.showDatePicker
 import com.pxy.visaz.core.model.visa.VisaApplicationModel
 import com.pxy.visaz.databinding.FragmentVisaDetailsBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -46,15 +45,22 @@ class VisaDetailsFragment : PopBackFragment() {
                 visaViewModel.removeTraveller()
             }
             btnStartVisa.setOnClickListener {
-                showDatePicker {
+                val bundle = arguments ?: Bundle()
+                bundle.putInt(AppConstants.EXTRA_TRAVELLER_COUNT, visaViewModel.getTravellerCount())
+                findNavController().navigate(
+                    R.id.action_visaDetailsFragment_to_visaSubmitFormFragment,
+                    bundle
+                )
+                /*showDatePicker {
                     toast("Selected date: $it")
                     val bundle = arguments ?: Bundle()
                     bundle.putString(AppConstants.EXTRA_SELECTED_DATE, it)
+                    bundle.putInt(AppConstants.EXTRA_TRAVELLER_COUNT, visaViewModel.getTravellerCount())
                     findNavController().navigate(
                         R.id.action_visaDetailsFragment_to_visaSubmitFormFragment,
                         bundle
                     )
-                }
+                }*/
             }
         }
     }

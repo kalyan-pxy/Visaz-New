@@ -5,9 +5,12 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class VisaApplicationBasicDetails(
-    val selectedDate: String,
-    val motherName: String,
-    val fatherName: String,
-    val gender: String,
-    val country: String
-): Parcelable
+    val title: String? = null,
+    var selectedDate: String? = null,
+    var motherName: String? = null,
+    var fatherName: String? = null,
+    var gender: String? = null,
+    var country: String? = null,
+    var profileImageUri: String? = null,
+    var passportImageUri: String? = null
+) : Parcelable

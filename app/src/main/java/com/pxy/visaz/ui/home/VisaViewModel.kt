@@ -45,4 +45,8 @@ class VisaViewModel(private val useCase: VisaUseCase) : BaseViewModel() {
         _totalTravelers.value = _totalTravelers.value?.minus(1)
     }
 
+    fun getTravellerCount(): Int {
+        return _totalTravelers.value ?: 1
+    }
+
 }

@@ -57,6 +57,12 @@
     <string name="label_passport_image_upload">Click here to upload passport image</string>
 
     <string name="visa_basic_details_display">Date: %1$s\nMother Name: %2$s\nFather Name: %3$s\nGender: %4$s\nCountry: %5$s</string>
+    <string name="label_documents_required">Documents required</string>
+    <string name="label_profile_image">Profile Image</string>
+    <string name="label_passport_image">Passport image</string>
+
+    <string name="header_traveller">Traveller %1$d</string>
+    <string name="visa_application_submitted_successfully">Visa application submitted successfully</string>
 
     <string-array name="gender">
         <item>Male</item>
