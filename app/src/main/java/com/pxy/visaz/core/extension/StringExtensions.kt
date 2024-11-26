@@ -56,7 +56,11 @@ fun TextView.highlightTextMatches(
     movementMethod = LinkMovementMethod.getInstance()
 }
 
-fun Double.formatPrice(): String {
+fun Int.formatPrice(): String {
     val numberFormat = NumberFormat.getCurrencyInstance(Locale("en", "IN"))
     return numberFormat.format(this)
+}
+
+inline fun <T> Iterable<T>.forEachApply(block: T.() -> Unit) {
+    for (element in this) element.apply(block)
 }

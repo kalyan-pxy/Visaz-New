@@ -9,4 +9,5 @@ object ApiConstants {
     const val SIGN_UP_ENDPOINT = "$API/signup"
     const val CREATE_PASSWORD_ENDPOINT = "$API/create-password"
     const val COUNTRIES_ENDPOINT = "$API/countries"
+    const val VISA_SUBMIT_APPLICATION_ENDPOINT = "$API/submit_visa_application"
 }

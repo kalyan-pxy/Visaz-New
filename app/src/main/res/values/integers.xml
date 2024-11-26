@@ -8,4 +8,5 @@
     <integer name="username_max_length">60</integer>
     <integer name="phone_max_length">10</integer>
     <integer name="otp_max_length">6</integer>
+    <integer name="max_lines_1">1</integer>
 </resources>

@@ -284,4 +284,9 @@
         <item name="android:minHeight">48dp</item> <!-- Minimum height for the button -->
     </style>
 
+    <style name="circleImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
 </resources>

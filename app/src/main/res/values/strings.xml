@@ -39,8 +39,8 @@
     <string name="travellers">Travellers</string>
     <string name="label_start_visa">Start Visa</string>
     <string name="label_visa_on">Visa on %s</string>
-    <string name="label_visa_fee">Visa fee X %s</string>
-    <string name="label_our_fee">Our fee X %s</string>
+    <string name="label_visa_fee">Visa fee X %1$d</string>
+    <string name="label_our_fee">Visas fee X %1$d</string>
     <string name="label_visa_price_note">You pay %s only when we deliver your visa on time</string>
     <string name="label_visa_info">%1$s is officially authorized by Government of %2$s</string>
     <string name="error_message_unauthorized">You are not authorized to access this resource. Please log in and try again.</string>
@@ -63,6 +63,28 @@
 
     <string name="header_traveller">Traveller %1$d</string>
     <string name="visa_application_submitted_successfully">Visa application submitted successfully</string>
+    <string name="error_visa_input">Please check all mandatory inputs</string>
+    <string name="error_profile_image">Please upload profile image</string>
+    <string name="error_passport_image">Please upload passport image</string>
+    <string name="account_settings">Account settings</string>
+
+    <string name="name">Name</string>
+    <string name="website_url">Website URL</string>
+    <string name="twitter">Twitter</string>
+    <string name="facebook">Facebook</string>
+    <string name="linkedin">Linkedin</string>
+    <string name="youtube">Youtube</string>
+    <string name="update">Update</string>
+    <string name="hint_biography">Biography</string>
+    <string name="phone_number">Phone number</string>
+    <string name="label_profile">Profile</string>
+
+    <string name="logout_message">Are you sure want to logout?</string>
+    <string name="logout">Logout</string>
+    <string name="cancel">Cancel</string>
+    <string name="title_profile">Profile</string>
+    <string name="select_visa_type">Select visa type below</string>
+    <string name="total_amount">Total amount</string>
 
     <string-array name="gender">
         <item>Male</item>

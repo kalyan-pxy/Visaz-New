@@ -23,5 +23,9 @@
     <dimen name="IconDefaultSize">32dp</dimen>
     <dimen name="buttonHeight">56dp</dimen>
     <dimen name="profile_image_size">100dp</dimen>
+    <dimen name="profile_image_size_small">100dp</dimen>
 
+    <dimen name="stroke_width">2dp</dimen>
+    <dimen name="corner_radius">4dp</dimen>
+    <dimen name="spaceNone">0dp</dimen>
 </resources>

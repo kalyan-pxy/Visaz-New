@@ -2,6 +2,7 @@ package com.pxy.visaz.core.extension
 
 import android.content.Context
 import android.graphics.BitmapFactory
+import android.util.Base64
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -59,4 +60,30 @@ fun copyFileToAppStorage(context: Context, sourcePath: String, fileName: String)
         e.printStackTrace()
     }
     return null
+}
+
+fun String.toBase64(): String? {
+    return try {
+        val file = File(this)
+        val bytes = file.readBytes() // Read the file as a byte array
+        Base64.encodeToString(bytes, Base64.DEFAULT) // Convert to Base64 string
+    } catch (e: IOException) {
+        e.printStackTrace()
+        null
+    }
+}
+
+fun String.base64ToImage(imageView: ImageView) {
+    try {
+        // Decode Base64 string to byte array
+        val decodedBytes = Base64.decode(this, Base64.DEFAULT)
+
+        // Convert byte array to Bitmap
+        val bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
+
+        // Set the Bitmap to ImageView
+        imageView.setImageBitmap(bitmap)
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
 }

@@ -38,9 +38,8 @@ class Validator {
     // Method to return error message if validation fails for username
     fun getNameError(name: String): String? {
         return when {
-            name.isEmpty() -> "Name cannot be empty"
-            name.length < 3 -> "Name must be at least 3 characters long"
-            name.contains(" ") -> "Name should not contain spaces"
+            name.isEmpty() -> "Input cannot be empty"
+            name.length < 3 -> "Input must be at least 3 characters long"
             else -> null
         }
     }
@@ -102,6 +101,17 @@ class Validator {
             otp.isEmpty() -> "OTP cannot be empty"
             otp.length < 6 -> "OTP must be 6 characters long"
             otp.contains(" ") -> "OTP should not contain spaces"
+            else -> null
+        }
+    }
+
+    fun isInputValid(input: String?): Boolean {
+        return input.isNullOrEmpty().not()
+    }
+
+    fun getInputError(input: String?): String? {
+        return when {
+            input.isNullOrEmpty() -> "input cannot be empty"
             else -> null
         }
     }

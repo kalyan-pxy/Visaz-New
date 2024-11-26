@@ -32,10 +32,10 @@ open class VisaListAdapter(
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         with(rowBinding) {
             visaModels[position].let { visaModel ->
-                visaImage.loadImage(visaModel.imageUrl.orEmpty())
-                visaTitle.text = "${visaModel.visaType} - ${visaModel.country}"
+                visaImage.loadImage(visaModel.bannerImageUrl.orEmpty())
+                visaTitle.text = visaModel.name
                 visaSubTitle.apply {
-                    text = context.getString(R.string.label_get_on, visaModel.processingTime)
+                    text = visaModel.description
                 }
                 root.setOnClickListener {
                     onItemClickListener.invoke(visaModel)

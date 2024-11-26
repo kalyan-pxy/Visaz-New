@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.pxy.visaz.R
 import com.pxy.visaz.core.AppConstants
 import com.pxy.visaz.core.PopBackFragment
-import com.pxy.visaz.core.model.visa.VisaApplicationBasicDetails
+import com.pxy.visaz.core.model.visa.VisaApplicationDetails
 import com.pxy.visaz.core.model.visa.VisaApplicationModel
 import com.pxy.visaz.databinding.FragmentVisaImagesUploadBinding
 import com.pxy.visaz.ui.home.VisaViewModel
@@ -22,7 +22,7 @@ class VisaImagesUploadFragment : PopBackFragment() {
 
     private lateinit var binding: FragmentVisaImagesUploadBinding
     private var visaApplicationModel: VisaApplicationModel? = null
-    private var visaApplicationBasicDetails: VisaApplicationBasicDetails? = null
+    private var visaApplicationBasicDetails: VisaApplicationDetails? = null
 
     private var selectedProfileImageUri: Uri? = null
     private var selectedPassportImageUri: Uri? = null
@@ -102,7 +102,7 @@ class VisaImagesUploadFragment : PopBackFragment() {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                     arguments?.getParcelable(
                         AppConstants.EXTRA_VISA_APPLICATION_BASIC_DETAILS,
-                        VisaApplicationBasicDetails::class.java
+                        VisaApplicationDetails::class.java
                     )
                 } else {
                     arguments?.getParcelable(AppConstants.EXTRA_VISA_APPLICATION_BASIC_DETAILS)

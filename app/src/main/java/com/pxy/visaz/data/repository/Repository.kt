@@ -7,6 +7,8 @@ import com.pxy.visaz.core.model.ErrorModel
 import com.pxy.visaz.core.model.LoginModel
 import com.pxy.visaz.core.model.SignUpModel
 import com.pxy.visaz.core.model.User
+import com.pxy.visaz.core.model.visa.VisaApplicationSubmitModel
+import com.pxy.visaz.domain.model.request.SubmitVisaApplicationRequestModel
 import com.pxy.visaz.core.model.visa.VisaApplicationModel
 import com.pxy.visaz.data.dtos.InspectionDto
 import com.pxy.visaz.data.local.AppPreferenceHelper
@@ -132,6 +134,21 @@ class Repository(
             BaseModel(
                 isSuccessful = true,
                 model = CreatePasswordModel(true, result.body()?.message.orEmpty())
+            )
+        } else {
+            BaseModel(
+                isSuccessful = false,
+                errorModel = generateErrorModel(result.code(), result.errorBody())
+            )
+        }
+    }
+
+    override suspend fun submitVisaApplication(request: SubmitVisaApplicationRequestModel): BaseModel<VisaApplicationSubmitModel> {
+        val result = remoteDataSource.appService.submitVisaApplication(request)
+        return if (result.isSuccessful) {
+            BaseModel(
+                isSuccessful = true,
+                model = VisaApplicationSubmitModel(result.body()?.message.orEmpty())
             )
         } else {
             BaseModel(

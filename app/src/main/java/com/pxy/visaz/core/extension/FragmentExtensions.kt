@@ -4,6 +4,7 @@ import android.content.Context
 import android.net.Uri
 import android.provider.MediaStore
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -103,4 +104,8 @@ fun Fragment.showDatePicker(onDateSelected: (String) -> Unit) {
         val selectedDate = DateUtils.convertToDisplayDate(selection)
         onDateSelected(selectedDate)
     }
+}
+
+fun Context.toast(msg: String) {
+    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
 }

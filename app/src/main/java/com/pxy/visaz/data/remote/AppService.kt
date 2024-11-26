@@ -1,7 +1,8 @@
 package com.pxy.visaz.data.remote
 
-import com.pxy.visaz.data.remote.model.VisasResponse
+import com.pxy.visaz.domain.model.request.SubmitVisaApplicationRequestModel
 import com.pxy.visaz.data.remote.model.InspectionResponse
+import com.pxy.visaz.data.remote.model.VisasResponse
 import com.pxy.visaz.domain.ApiConstants
 import com.pxy.visaz.domain.model.request.CreatePasswordRequestModel
 import com.pxy.visaz.domain.model.request.LoginRequestModel
@@ -9,6 +10,7 @@ import com.pxy.visaz.domain.model.request.SignUpRequestModel
 import com.pxy.visaz.domain.model.response.CreatePasswordResponseModel
 import com.pxy.visaz.domain.model.response.LoginResponseModel
 import com.pxy.visaz.domain.model.response.SignUpResponseModel
+import com.pxy.visaz.domain.model.response.SubmitVisaApplicationResponseModel
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -37,4 +39,9 @@ interface AppService {
     @GET(ApiConstants.COUNTRIES_ENDPOINT)
     suspend fun getVisaCountries(
     ): Response<List<VisasResponse>>
+
+    @POST(ApiConstants.VISA_SUBMIT_APPLICATION_ENDPOINT)
+    suspend fun submitVisaApplication(
+        @Body request: SubmitVisaApplicationRequestModel
+    ): Response<SubmitVisaApplicationResponseModel>
 }

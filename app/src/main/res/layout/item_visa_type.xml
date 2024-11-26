@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/spaceMedium">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spaceMedium"
+        android:src="@drawable/indicator_checked"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/ctvVisaType"
+        style="?textAppearanceBody1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spaceMedium"
+        android:layout_marginTop="@dimen/spaceMedium"
+        android:layout_marginEnd="@dimen/spaceMedium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivIndicator"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/app_name" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/ctvVisaDescription"
+        style="?textAppearanceBody2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spaceSmall"
+        android:layout_marginEnd="@dimen/spaceMedium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/ctvVisaType"
+        app:layout_constraintTop_toBottomOf="@+id/ctvVisaType"
+        tools:text="@string/app_name" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/ctvVisaProcessingTime"
+        style="?textAppearanceBody2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spaceSmall"
+        android:layout_marginEnd="@dimen/spaceMedium"
+        android:paddingBottom="@dimen/spaceMedium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/ctvVisaDescription"
+        app:layout_constraintTop_toBottomOf="@+id/ctvVisaDescription"
+        tools:text="@string/app_name" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

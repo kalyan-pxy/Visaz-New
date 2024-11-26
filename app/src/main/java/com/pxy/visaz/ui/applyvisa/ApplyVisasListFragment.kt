@@ -13,7 +13,7 @@ import com.pxy.visaz.core.PopBackFragment
 import com.pxy.visaz.core.extension.copyFileToAppStorage
 import com.pxy.visaz.core.extension.showDatePicker
 import com.pxy.visaz.core.extension.uriToFilePath
-import com.pxy.visaz.core.model.visa.VisaApplicationBasicDetails
+import com.pxy.visaz.core.model.visa.VisaApplicationDetails
 import com.pxy.visaz.databinding.FragmentApplyVisasListBinding
 import com.pxy.visaz.ui.home.VisaViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -23,7 +23,7 @@ class ApplyVisasListFragment : PopBackFragment() {
 
     private lateinit var binding: FragmentApplyVisasListBinding
     private var travelerCount = 1
-    private var list: ArrayList<VisaApplicationBasicDetails> = arrayListOf()
+    private var list: ArrayList<VisaApplicationDetails> = arrayListOf()
 
     private var selectedPosition = 0
     private val visaViewModel: VisaViewModel by viewModel()
@@ -56,7 +56,7 @@ class ApplyVisasListFragment : PopBackFragment() {
 
             for (i in 1..travelerCount) {
                 list.add(
-                    VisaApplicationBasicDetails(
+                    VisaApplicationDetails(
                         title = getString(R.string.header_traveller, i)
                     )
                 )
@@ -76,13 +76,13 @@ class ApplyVisasListFragment : PopBackFragment() {
         }
     }
 
-    private fun initVisaList(list: ArrayList<VisaApplicationBasicDetails>) {
+    private fun initVisaList(list: ArrayList<VisaApplicationDetails>) {
         with(binding) {
             adapter = ApplyVisaListAdapter()
             adapter.setApplyVisaListListener(object : ApplyVisaListAdapter.ApplyVisaListListener {
                 override fun onProfileImageUploadClick(
                     position: Int,
-                    visaModel: VisaApplicationBasicDetails
+                    visaModel: VisaApplicationDetails
                 ) {
                     selectedPosition = position
                     pickProfileImageFromGallery()
@@ -90,7 +90,7 @@ class ApplyVisasListFragment : PopBackFragment() {
 
                 override fun onPassportImageUploadClick(
                     position: Int,
-                    visaModel: VisaApplicationBasicDetails
+                    visaModel: VisaApplicationDetails
                 ) {
                     selectedPosition = position
                     pickPassportImageFromGallery()
@@ -98,7 +98,7 @@ class ApplyVisasListFragment : PopBackFragment() {
 
                 override fun onSelectDateClick(
                     position: Int,
-                    visaModel: VisaApplicationBasicDetails
+                    visaModel: VisaApplicationDetails
                 ) {
                     selectedPosition = position
                     showDatePicker()
@@ -134,7 +134,7 @@ class ApplyVisasListFragment : PopBackFragment() {
         registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
             uri?.let { imageUri ->
                 list[selectedPosition].apply {
-                    profileImageUri = uriToFilePath(imageUri)?.let {
+                    profileImageBase64 = uriToFilePath(imageUri)?.let {
                         copyFileToAppStorage(
                             requireContext(),
                             it,
@@ -156,7 +156,7 @@ class ApplyVisasListFragment : PopBackFragment() {
         registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
             uri?.let { imageUri ->
                 list[selectedPosition].apply {
-                    passportImageUri = uriToFilePath(imageUri)?.let {
+                    passportImageBase64 = uriToFilePath(imageUri)?.let {
                         copyFileToAppStorage(
                             requireContext(),
                             it,

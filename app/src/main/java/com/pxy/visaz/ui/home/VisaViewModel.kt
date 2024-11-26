@@ -4,7 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.pxy.visaz.core.BaseViewModel
+import com.pxy.visaz.core.model.visa.VisaApplicationSubmitModel
+import com.pxy.visaz.domain.model.request.SubmitVisaApplicationRequestModel
+import com.pxy.visaz.core.model.visa.VisaApplicationDetails
 import com.pxy.visaz.core.model.visa.VisaApplicationModel
+import com.pxy.visaz.core.model.visa.VisaType
 import com.pxy.visaz.data.local.AppPreferenceHelper
 import com.pxy.visaz.domain.interactors.VisaUseCase
 import kotlinx.coroutines.launch
@@ -13,6 +17,10 @@ class VisaViewModel(private val useCase: VisaUseCase) : BaseViewModel() {
 
     val logoutObserver: MutableLiveData<Boolean> = MutableLiveData()
     val visasObserver: MutableLiveData<List<VisaApplicationModel>?> = MutableLiveData()
+
+    val selectedVisaTypeObserver: MutableLiveData<VisaType?> = MutableLiveData()
+    val submitVisaApplicationObserver: MutableLiveData<VisaApplicationSubmitModel?> =
+        MutableLiveData()
 
     private val _totalTravelers = MutableLiveData(1)
     val totalTravelers: LiveData<Int> = _totalTravelers
@@ -32,7 +40,6 @@ class VisaViewModel(private val useCase: VisaUseCase) : BaseViewModel() {
             } else {
                 _errorObserver.value = result.errorModel
             }
-
         }
     }
 
@@ -47,6 +54,31 @@ class VisaViewModel(private val useCase: VisaUseCase) : BaseViewModel() {
 
     fun getTravellerCount(): Int {
         return _totalTravelers.value ?: 1
+    }
+
+    fun submitVisaApplication(
+        countryId: String,
+        visaType: String,
+        updatedList: ArrayList<VisaApplicationDetails>
+    ) {
+        _loaderObserver.value = true
+        viewModelScope.launch {
+            val result = useCase.submitVisaApplication(
+                countryId,
+                visaType,
+                visaApplicationDetails = updatedList
+            )
+            _loaderObserver.value = false
+            if (result.isSuccessful) {
+                submitVisaApplicationObserver.value = result.model
+            } else {
+                _errorObserver.value = result.errorModel
+            }
+        }
+    }
+
+    fun selectVisaType(vasaType: VisaType) {
+        selectedVisaTypeObserver.value = vasaType
     }
 
 }

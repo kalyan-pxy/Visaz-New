@@ -51,4 +51,8 @@
     <color name="error_container">#FBC02D</color> <!-- Yellow for error container -->
     <color name="on_error_container">#000000</color> <!-- Black text on error container -->
 
+    <!-- radio colors -->
+    <color name="deep_orange_700">#e64a19</color>
+    <color name="deep_orange_300">#ff8a65</color>
+    <color name="deep_orange_50">#fbe9e7</color>
 </resources>

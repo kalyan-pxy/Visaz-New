@@ -7,7 +7,6 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import com.bluboy.android.ui.support.VisaListAdapter
 import com.pxy.visaz.R
@@ -39,12 +38,6 @@ class VisasFragment : BaseFragment() {
             }
             requireActivity().initBackNavigationHandler {
                 handleBackPress()
-            }
-            with(layoutHeader) {
-                tvLogout.isVisible = true
-                tvLogout.setOnClickListener {
-                    visaViewModel.logout()
-                }
             }
             visaViewModel.fetchVisas()
         }

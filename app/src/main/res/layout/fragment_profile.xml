@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clProfilePic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spaceMedium">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivProfilePic"
+                    android:layout_width="@dimen/profile_image_size_small"
+                    android:layout_height="@dimen/profile_image_size_small"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_image_placeholder"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/circleImageView" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvName"
+                    style="?textAppearanceBody1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spaceMedium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ivProfilePic"
+                    app:layout_constraintTop_toTopOf="@+id/ivProfilePic"
+                    tools:text="Kalyan" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvEmail"
+                    style="?textAppearanceBody2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spaceMedium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tvName"
+                    app:layout_constraintTop_toBottomOf="@+id/tvName"
+                    tools:text="kalyan@gmail.com" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.pxy.visaz.core.customview.OptionCardView
+                android:id="@+id/optionAccountSettings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceMedium"
+                android:layout_marginHorizontal="@dimen/spaceMedium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/optionWishlist"
+                app:optionImage="@drawable/ic_account_settings"
+                app:optionTitle="@string/account_settings" />
+
+            <com.pxy.visaz.core.customview.OptionCardView
+                android:id="@+id/optionLogout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spaceMedium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/optionAccountSettings"
+                app:optionImage="@drawable/ic_logout"
+                app:optionTitle="@string/label_logout" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -59,7 +59,7 @@
                 android:layout_marginEnd="@dimen/spaceMedium"
                 android:layout_marginBottom="@dimen/spaceMedium"
                 android:ellipsize="end"
-                android:maxLines="1"
+                android:maxLines="2"
                 android:textAppearance="?textAppearanceBody2"
                 android:textColor="@color/white"
                 tools:text="Sandra Adams" />

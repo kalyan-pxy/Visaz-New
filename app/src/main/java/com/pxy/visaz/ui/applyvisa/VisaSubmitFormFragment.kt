@@ -11,7 +11,7 @@ import com.pxy.visaz.R
 import com.pxy.visaz.core.AppConstants
 import com.pxy.visaz.core.PopBackFragment
 import com.pxy.visaz.core.model.visa.Country
-import com.pxy.visaz.core.model.visa.VisaApplicationBasicDetails
+import com.pxy.visaz.core.model.visa.VisaApplicationDetails
 import com.pxy.visaz.core.model.visa.VisaApplicationModel
 import com.pxy.visaz.core.utils.Validator
 import com.pxy.visaz.databinding.FragmentVisaSubmitFormBinding
@@ -82,7 +82,7 @@ class VisaSubmitFormFragment : PopBackFragment() {
                         etCountry.text.toString()
                     )
                 ) {
-                    val visaApplicationBasicDetails = VisaApplicationBasicDetails(
+                    val visaApplicationBasicDetails = VisaApplicationDetails(
                         etSelectedDate.text.toString(),
                         etMotherName.text.toString(),
                         etFatherName.text.toString(),

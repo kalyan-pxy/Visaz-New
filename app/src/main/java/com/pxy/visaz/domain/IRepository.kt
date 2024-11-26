@@ -4,6 +4,8 @@ import com.pxy.visaz.core.model.BaseModel
 import com.pxy.visaz.core.model.CreatePasswordModel
 import com.pxy.visaz.core.model.LoginModel
 import com.pxy.visaz.core.model.SignUpModel
+import com.pxy.visaz.core.model.visa.VisaApplicationSubmitModel
+import com.pxy.visaz.domain.model.request.SubmitVisaApplicationRequestModel
 import com.pxy.visaz.core.model.visa.VisaApplicationModel
 import com.pxy.visaz.domain.model.InspectionDetails
 import com.pxy.visaz.domain.model.Inspections
@@ -21,4 +23,5 @@ interface IRepository {
     suspend fun createPassword(createPasswordRequestModel: CreatePasswordRequestModel): BaseModel<CreatePasswordModel>
     fun isLoggedInUser(): Boolean
     suspend fun loadVisas(): BaseModel<List<VisaApplicationModel>>
+    suspend fun submitVisaApplication(request: SubmitVisaApplicationRequestModel): BaseModel<VisaApplicationSubmitModel>
 }
