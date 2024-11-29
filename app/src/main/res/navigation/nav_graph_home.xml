@@ -27,7 +27,7 @@
         android:id="@+id/homeFragment"
         android:name="com.pxy.visaz.ui.dashboard.DashboardFragment"
         android:label="Dashboard"
-        tools:layout="@layout/fragment_visas"></fragment>
+        tools:layout="@layout/fragment_visas" />
 
     <fragment
         android:id="@+id/visaDetailsFragment"
@@ -36,7 +36,7 @@
         tools:layout="@layout/fragment_visa_details">
         <action
             android:id="@+id/action_visaDetailsFragment_to_visaSubmitFormFragment"
-            app:destination="@id/applyVisaSubmitFormFragment"
+            app:destination="@id/visaSubmitFormFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"

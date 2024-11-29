@@ -1,22 +1,30 @@
 package com.pxy.visaz.ui.applyvisa
 
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import androidx.navigation.fragment.findNavController
+import androidx.activity.result.contract.ActivityResultContracts
+import com.google.android.material.datepicker.CalendarConstraints
+import com.google.android.material.datepicker.DateValidatorPointBackward
+import com.google.firebase.util.nextAlphanumericString
 import com.pxy.visaz.R
 import com.pxy.visaz.core.AppConstants
 import com.pxy.visaz.core.PopBackFragment
+import com.pxy.visaz.core.customview.ViewYesNoDocUpload
+import com.pxy.visaz.core.extension.copyFileToAppStorage
+import com.pxy.visaz.core.extension.showDatePicker
+import com.pxy.visaz.core.extension.uriToFilePath
 import com.pxy.visaz.core.model.visa.Country
-import com.pxy.visaz.core.model.visa.VisaApplicationDetails
 import com.pxy.visaz.core.model.visa.VisaApplicationModel
 import com.pxy.visaz.core.utils.Validator
 import com.pxy.visaz.databinding.FragmentVisaSubmitFormBinding
 import com.pxy.visaz.ui.home.VisaViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import kotlin.random.Random
 
 
 class VisaSubmitFormFragment : PopBackFragment() {
@@ -24,6 +32,7 @@ class VisaSubmitFormFragment : PopBackFragment() {
     private lateinit var binding: FragmentVisaSubmitFormBinding
     private var visaApplicationModel: VisaApplicationModel? = null
     private var selectedDate: String? = null
+    private var selectedViewYesNoDocUpload: ViewYesNoDocUpload? = null
 
     private val validator by lazy { Validator() }
 
@@ -46,14 +55,61 @@ class VisaSubmitFormFragment : PopBackFragment() {
         super.onViewCreated(view, savedInstanceState)
         initObservers()
         initViews()
+        initListeners()
+    }
+
+    private fun initListeners() {
+        with(binding) {
+            inputSelectedDate.addOnClickListener {
+                showSelectedDatePicker()
+            }
+            inputDOB.addOnClickListener {
+                showDOBDatePicker()
+            }
+            docViewProfile.addDocImageClickListener {
+                selectedViewYesNoDocUpload = docViewProfile
+                pickImage.launch("image/*")
+            }
+            docViewPassport.addDocImageClickListener {
+                selectedViewYesNoDocUpload = docViewPassport
+                pickImage.launch("image/*")
+            }
+        }
+    }
+
+    private fun showSelectedDatePicker() {
+        showDatePicker {
+            binding.inputSelectedDate.setText(it)
+        }
+    }
+
+    private fun showDOBDatePicker() {
+        // Set constraints to disable past dates
+        val constraintsBuilder = CalendarConstraints.Builder()
+            .setValidator(DateValidatorPointBackward.now())
+
+        showDatePicker(constraintsBuilder) {
+            binding.inputDOB.setText(it)
+        }
     }
 
     private fun initViews() {
         initToolbar()
-        initGenderDropDown()
-        initCountryDropDown()
-        updateVisaDetails()
-        initListeners()
+        visaApplicationModel?.let {
+            with(binding) {
+                tvContactInCountry.text = getString(R.string.contact_in_country, it.name)
+
+                docViewProfile.setData(
+                    getString(R.string.doc_previous_passport_exhibiting),
+                    getString(R.string.upload_doc)
+                )
+
+                docViewPassport.setData(
+                    getString(R.string.doc_long_term_fd),
+                    getString(R.string.upload_doc)
+                )
+            }
+        }
     }
 
     private fun initCountryDropDown() {
@@ -63,104 +119,7 @@ class VisaSubmitFormFragment : PopBackFragment() {
             R.layout.item_dropdown,
             countries.map { it.name } // Display only the name
         )
-        binding.etCountry.setAdapter(adapter)
-    }
-
-    private fun initGenderDropDown() {
-        val priorities = resources.getStringArray(R.array.gender)
-        val arrayAdapter = ArrayAdapter(requireContext(), R.layout.item_dropdown, priorities)
-        binding.etGender.setAdapter(arrayAdapter)
-    }
-
-    private fun initListeners() {
-        with(binding) {
-            btnSubmit.setOnClickListener {
-                if (isValid(
-                        etMotherName.text.toString(),
-                        etFatherName.text.toString(),
-                        etGender.text.toString(),
-                        etCountry.text.toString()
-                    )
-                ) {
-                    val visaApplicationBasicDetails = VisaApplicationDetails(
-                        etSelectedDate.text.toString(),
-                        etMotherName.text.toString(),
-                        etFatherName.text.toString(),
-                        etGender.text.toString(),
-                        etCountry.text.toString()
-                    )
-                    val bundle = arguments ?: Bundle()
-                    bundle.putParcelable(
-                        AppConstants.EXTRA_VISA_APPLICATION_BASIC_DETAILS,
-                        visaApplicationBasicDetails
-                    )
-                    findNavController().navigate(
-                        R.id.action_visaSubmitFormFragment_to_visaImagesUploadFragment,
-                        bundle
-                    )
-                }
-            }
-        }
-    }
-
-    private fun isValid(
-        motherName: String,
-        fatherName: String,
-        gender: String,
-        country: String
-    ): Boolean {
-
-        with(binding) {
-            with(tilMotherName) {
-                if (validator.isValidName(motherName)) {
-                    error = null
-                } else {
-                    error = validator.getNameError(motherName)
-                    return false
-                }
-            }
-
-            with(tilFatherName) {
-                if (validator.isValidName(fatherName)) {
-                    error = null
-                } else {
-                    error = validator.getNameError(fatherName)
-                    return false
-                }
-            }
-
-            with(tilGender) {
-                if (validator.isValidName(gender)) {
-                    error = null
-                } else {
-                    error = validator.getNameError(gender)
-                    return false
-                }
-            }
-
-            with(tilCountry) {
-                if (validator.isValidName(country)) {
-                    error = null
-                } else {
-                    error = validator.getNameError(country)
-                    return false
-                }
-            }
-
-
-        }
-        return true
-    }
-
-    private fun updateVisaDetails() {
-        with(binding) {
-            visaApplicationModel?.let {
-
-            }
-            selectedDate?.let {
-                etSelectedDate.setText(it)
-            }
-        }
+        //binding.etCountry.setAdapter(adapter)
     }
 
     private fun initToolbar() {
@@ -194,6 +153,23 @@ class VisaSubmitFormFragment : PopBackFragment() {
     private fun initObservers() {
 
     }
+
+
+    // Register for activity result to get an image from gallery
+    private val pickImage =
+        registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+            uri?.let { imageUri ->
+                val randomImageName = Random.nextAlphanumericString(10)
+                val profileImageUri = uriToFilePath(imageUri)?.let {
+                    copyFileToAppStorage(
+                        requireContext(),
+                        it,
+                        randomImageName
+                    )
+                }
+                selectedViewYesNoDocUpload?.setImageUri(profileImageUri, randomImageName)
+            }
+        }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

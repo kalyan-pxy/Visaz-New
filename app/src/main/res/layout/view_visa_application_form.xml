@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cvContainer"
     style="@style/Widget.MyApp.MaterialCardView"
     android:layout_width="match_parent"
@@ -13,206 +12,570 @@
     app:layout_constraintTop_toBottomOf="@+id/layoutHeader"
     app:layout_constraintVertical_bias="0">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:context=".ui.InspectionFragment">
+        android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvCardHeader"
-            style="?textAppearanceHeadline6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilSelectedDate"
-            style="@style/Widget.MyApp.TextInputLayout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spaceMedium"
-            android:hint="@string/hint_selected_date"
-            app:endIconDrawable="@drawable/ic_calendar"
-            app:endIconMode="custom"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvCardHeader">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etSelectedDate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:focusable="false"
-                android:inputType="none" />
-        </com.google.android.material.textfield.TextInputLayout>
-        <!-- <com.google.android.material.textfield.TextInputLayout
-             android:id="@+id/dateInputLayout"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             app:endIconMode="custom"
-             app:endIconDrawable="@drawable/ic_calendar"  &lt;!&ndash; Calendar icon &ndash;&gt;
-         android:hint="Select Date">
-
-         <com.google.android.material.textfield.TextInputEditText
-             android:id="@+id/dateEditText"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:focusable="false"
-             android:clickable="true"
-             android:inputType="none" /> &lt;!&ndash; Disable keyboard input &ndash;&gt;
-     </com.google.android.material.textfield.TextInputLayout>-->
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilMotherName"
-            style="@style/Widget.MyApp.TextInputLayout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spaceMedium"
-            android:hint="@string/hint_mother_name"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tilSelectedDate">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etMotherName"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:maxLength="@integer/username_max_length" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilFatherName"
-            style="@style/Widget.MyApp.TextInputLayout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spaceMedium"
-            android:hint="@string/hint_father_name"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tilMotherName">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etFatherName"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:maxLength="@integer/username_max_length" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilGender"
-            style="@style/AppDropdownMenu"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spaceMedium"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tilFatherName">
-
-            <AutoCompleteTextView
-                android:id="@+id/etGender"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:focusable="false"
-                android:hint="@string/hint_gender"
-                android:inputType="none"
-                android:maxLength="@integer/phone_max_length" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilCountry"
-            style="@style/AppDropdownMenu"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spaceMedium"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tilGender">
-
-            <AutoCompleteTextView
-                android:id="@+id/etCountry"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="@string/hint_country"
-                android:inputType="none"
-                android:maxLength="@integer/phone_max_length" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvDocumentsHeader"
-            style="?textAppearanceBody1"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spaceMedium"
-            android:background="@color/primary"
-            android:textColor="@color/white"
-            android:paddingHorizontal="@dimen/spaceMedium"
-            android:paddingVertical="@dimen/spaceSmall"
-            android:text="@string/label_documents_required"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tilCountry" />
+            android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideLineCenterVertical"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.5" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCardHeader"
+                style="?textAppearanceHeadline6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvProfilePic"
-            style="?textAppearanceBody1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spaceMedium"
-            android:gravity="center"
-            android:paddingHorizontal="@dimen/spaceMedium"
-            android:paddingVertical="@dimen/spaceSmall"
-            android:text="@string/label_profile_image"
-            app:layout_constraintEnd_toStartOf="@+id/guideLineCenterVertical"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvDocumentsHeader" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilNationality"
+                style="@style/Widget.MyApp.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                android:enabled="false"
+                android:hint="@string/nationality"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tilSelectedDate">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvPassportImage"
-            style="?textAppearanceBody1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spaceMedium"
-            android:gravity="center"
-            android:paddingHorizontal="@dimen/spaceMedium"
-            android:paddingVertical="@dimen/spaceSmall"
-            android:text="@string/label_passport_image"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/guideLineCenterVertical"
-            app:layout_constraintTop_toBottomOf="@+id/tvDocumentsHeader" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNationality"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:maxLength="@integer/username_max_length" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/ivProfilePic"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/profile_image_size"
-            android:layout_margin="@dimen/spaceMedium"
-            android:contentDescription="@string/label_profile_image"
-            android:src="@drawable/ic_image_placeholder"
-            app:layout_constraintEnd_toStartOf="@+id/guideLineCenterVertical"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvProfilePic" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilSelectedDate"
+                style="@style/Widget.MyApp.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                android:hint="@string/hint_selected_date"
+                app:endIconDrawable="@drawable/ic_calendar"
+                app:endIconMode="custom"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCardHeader">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/ivPassportImage"
-            style="?textAppearanceBody1"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/profile_image_size"
-            android:layout_margin="@dimen/spaceMedium"
-            android:contentDescription="@string/label_passport_image"
-            android:src="@drawable/ic_image_placeholder"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/guideLineCenterVertical"
-            app:layout_constraintTop_toBottomOf="@+id/tvPassportImage" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etSelectedDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilFullName"
+                style="@style/Widget.MyApp.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                android:hint="@string/full_name_of_applicant"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tilSelectedDate">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etFullName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:maxLength="@integer/username_max_length" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilContactNumber"
+                style="@style/Widget.MyApp.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                android:hint="@string/contact_no">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etContactNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="phone"
+                    android:maxLength="@integer/phone_max_length" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilEmail"
+                style="@style/Widget.MyApp.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                android:hint="@string/email_id">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textEmailAddress"
+                    android:maxLength="@integer/phone_max_length" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilGender"
+                style="@style/AppDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tilFatherName">
+
+                <AutoCompleteTextView
+                    android:id="@+id/etGender"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:focusable="false"
+                    android:hint="@string/hint_gender"
+                    android:inputType="none"
+                    android:maxLength="@integer/phone_max_length" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilMotherName"
+                style="@style/Widget.MyApp.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                android:hint="@string/hint_mother_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tilSelectedDate">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etMotherName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:maxLength="@integer/username_max_length" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilFatherName"
+                style="@style/Widget.MyApp.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                android:hint="@string/hint_father_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tilMotherName">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etFatherName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:maxLength="@integer/username_max_length" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilCurrentResidentialAddress"
+                style="@style/Widget.MyApp.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                android:hint="@string/current_residential_address">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etCurrentResidentialAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="top"
+                    android:inputType="textMultiLine"
+                    android:minLines="4" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilNameOfBusiness"
+                style="@style/Widget.MyApp.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                android:hint="@string/name_of_business">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNameOfBusiness"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:maxLength="@integer/username_max_length" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilAddressOfBusiness"
+                style="@style/Widget.MyApp.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                android:hint="@string/employer_address_of_business">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAddressOfBusiness"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="top"
+                    android:inputType="textMultiLine"
+                    android:minLines="4" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilEmployerDesignation"
+                style="@style/Widget.MyApp.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                android:hint="@string/employer_designation">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEmployerDesignation"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:maxLength="@integer/username_max_length" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPanNumber"
+                style="@style/Widget.MyApp.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                android:hint="@string/pan_number">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPanNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:maxLength="@integer/pan_number_max_length"
+                    android:maxLines="@integer/max_lines_1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilMaritalStatus"
+                style="@style/AppDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tilFatherName">
+
+                <AutoCompleteTextView
+                    android:id="@+id/etMaritalStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:focusable="false"
+                    android:hint="@string/marital_status"
+                    android:inputType="none"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilHusbandName"
+                style="@style/Widget.MyApp.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                android:hint="@string/husband_name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etHusbandName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:maxLength="@integer/pan_number_max_length" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilOccupation"
+                style="@style/Widget.MyApp.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                android:hint="@string/occupation">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etOccupation"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:maxLength="@integer/username_max_length" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilReligion"
+                style="@style/AppDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tilFatherName">
+
+                <AutoCompleteTextView
+                    android:id="@+id/etReligion"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:focusable="false"
+                    android:hint="@string/religion"
+                    android:inputType="none"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilEducationQualification"
+                style="@style/AppDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tilFatherName">
+
+                <AutoCompleteTextView
+                    android:id="@+id/etEducationQualification"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:focusable="false"
+                    android:hint="@string/education_qualification"
+                    android:inputType="none"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilMainLanguageSpoken"
+                style="@style/Widget.MyApp.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                android:hint="@string/main_language_spoken"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tilSelectedDate">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etMainLanguageSpoken"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:maxLength="@integer/username_max_length" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilDOB"
+                style="@style/Widget.MyApp.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                android:hint="@string/date_of_birth"
+                app:endIconDrawable="@drawable/ic_calendar"
+                app:endIconMode="custom"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCardHeader">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDOB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPlaceOfBirthCountry"
+                style="@style/Widget.MyApp.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                android:hint="@string/place_of_birth_country">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPlaceOfBirthCountry"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:maxLength="@integer/username_max_length" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPassportDetail"
+                style="@style/Widget.MyApp.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                android:hint="@string/passport_detail">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassportDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:maxLength="@integer/username_max_length" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPurposeOfVisit"
+                style="@style/Widget.MyApp.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                android:hint="@string/purpose_of_visit">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPurposeOfVisit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:maxLength="@integer/username_max_length" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="?textAppearanceBody2"
+                android:layout_marginTop="@dimen/spaceMedium"
+                android:text="@string/contact_in_country"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilCountryContactName"
+                style="@style/Widget.MyApp.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceXSmall"
+                android:hint="@string/name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etCountryContactName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:maxLength="@integer/username_max_length" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilRelationshipWithHost"
+                style="@style/Widget.MyApp.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                android:hint="@string/relationship_with_host">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etRelationshipWithHost"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:maxLength="@integer/username_max_length" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilAddressOrHotelConfirmation"
+                style="@style/Widget.MyApp.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                android:hint="@string/address_or_hotel_confirmation">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAddressOrHotelConfirmation"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="top"
+                    android:inputType="textMultiLine"
+                    android:minLines="4" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilVoucherArea"
+                style="@style/Widget.MyApp.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spaceSmall"
+                android:hint="@string/voucher_area">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etVoucherArea"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:maxLength="@integer/username_max_length" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- documents upload section -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvDocumentsHeader"
+                    style="?textAppearanceBody1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spaceMedium"
+                    android:background="@color/primary"
+                    android:paddingHorizontal="@dimen/spaceMedium"
+                    android:paddingVertical="@dimen/spaceSmall"
+                    android:text="@string/label_documents_required"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideLineCenterVertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvProfilePic"
+                    style="?textAppearanceBody1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spaceMedium"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/spaceMedium"
+                    android:paddingVertical="@dimen/spaceSmall"
+                    android:text="@string/label_profile_image"
+                    app:layout_constraintEnd_toStartOf="@+id/guideLineCenterVertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDocumentsHeader" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvPassportImage"
+                    style="?textAppearanceBody1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spaceMedium"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/spaceMedium"
+                    android:paddingVertical="@dimen/spaceSmall"
+                    android:text="@string/label_passport_image"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/guideLineCenterVertical"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDocumentsHeader" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivProfilePic"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/profile_image_size"
+                    android:layout_margin="@dimen/spaceMedium"
+                    android:contentDescription="@string/label_profile_image"
+                    android:src="@drawable/ic_image_placeholder"
+                    app:layout_constraintEnd_toStartOf="@+id/guideLineCenterVertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvProfilePic" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivPassportImage"
+                    style="?textAppearanceBody1"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/profile_image_size"
+                    android:layout_margin="@dimen/spaceMedium"
+                    android:contentDescription="@string/label_passport_image"
+                    android:src="@drawable/ic_image_placeholder"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/guideLineCenterVertical"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPassportImage" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
 </com.google.android.material.card.MaterialCardView>

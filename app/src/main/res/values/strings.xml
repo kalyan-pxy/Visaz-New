@@ -46,9 +46,7 @@
     <string name="error_message_unauthorized">You are not authorized to access this resource. Please log in and try again.</string>
     <string name="google_login">Google Login</string>
     <string name="hint_selected_date">Selected date</string>
-    <string name="hint_mother_name">Mother\'s name</string>
-    <string name="hint_father_name">Father\'s name</string>
-    <string name="hint_gender">Gender</string>
+    <string name="hint_gender">Select Gender</string>
     <string name="hint_country">Country</string>
     <string name="label_application_form">Application Form</string>
     <string name="label_submit_application">Submit Application</string>
@@ -86,9 +84,111 @@
     <string name="select_visa_type">Select visa type below</string>
     <string name="total_amount">Total amount</string>
 
+    <string name="nationality">Nationality</string>
+    <string name="travel_date">Travel Date</string>
+    <string name="full_name_of_applicant">Full name of Applicant</string>
+    <string name="contact_no">Contact no</string>
+    <string name="email_id">Email id</string>
+    <string name="hint_mother_name">Mother\'s name</string>
+    <string name="hint_father_name">Father\'s name</string>
+    <string name="current_residential_address">Current residential address</string>
+    <string name="name_of_business">Name of Business</string>
+    <string name="employer_address_of_business">Employer Address of Business</string>
+    <string name="employer_designation">Employer Designation</string>
+    <string name="pan_number">PAN number</string>
+    <string name="marital_status">Marital Status</string>
+    <string name="husband_name">Husband\'s name</string>
+    <string name="occupation">Occupation</string>
+    <string name="religion">Religion</string>
+    <string name="education_qualification">Education qualification</string>
+    <string name="main_language_spoken">Main language spoken</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="place_of_birth_country">Place of birth Country</string>
+    <string name="passport_detail">Passport Detail</string>
+    <string name="passport_number">Passport Number</string>
+    <string name="purpose_of_visit">Purpose of visit</string>
+    <string name="contact_in_country">Contact in %s</string>
+    <string name="relationship_with_host">Relationship with host</string>
+    <string name="address_or_hotel_confirmation">Address / Hotel Confirmation</string>
+    <string name="voucher_area">Voucher Area</string>
+
+    <string name="prefix_input_hint">Enter %s</string>
+    <string name="prefix_dropdown_hint">Select %s</string>
+
+    <string name="doc_profile_image">Profile image</string>
+
+    <string name="doc_current_passport">Current passport</string>
+    <string name="doc_current_passport_note1">Must be valid for at least 6 months at the time of application</string>
+    <string name="doc_current_passport_note2">Coloured Photocopy of 1st 2 and last 2 pages of above passport</string>
+
+    <string name="doc_photocopy_of_ticket">Photocopy of  Airline confirmed onward / return ticket</string>
+    <string name="doc_photocopy_of_ticket_note1">Photo should be coloured &amp; clear, size 4.3 cms x 5.5 cms. AS REQUIRED TO CONFIRM PROOF OF ELIGIBILITY - Tick if enclosed Applicant Application Centre</string>
+
+    <string name="upload_doc">Upload Document</string>
+
+    <!--if yes then upload doc-->
+    <string name="doc_previous_passport_exhibiting">Previous passport exhibiting previous travel</string>
+
+    <!--if yes then upload doc-->
+    <string name="doc_long_term_fd">Banker’s certificate of long-term Fixed Deposits</string>
+
+    <!--if yes then upload doc-->
+    <string name="doc_income_tax_returns">Income-tax returns for last 2 years and photocopy of PAN card</string>
+
+    <!--if yes then upload doc-->
+    <string name="doc_letter_of_invitation">Letter of invitation from Dubai based close family member, along with photocopy of Passport, resident visa and proof of relationship</string>
+    <string name="label_india">India</string>
+    <string name="label_yes">Yes</string>
+    <string name="label_no">No</string>
+    <string name="date_format">dd-mm-yyyy</string>
+    <string name="title_gender">Gender</string>
+    <string name="hint_select_date">Select Date</string>
+    <string name="label_business_details">Business Details</string>
+    <string name="label_traveller_details">Traveller Details</string>
+    <string name="hint_travel_date">Travel date</string>
+    <string name="select_travel_date">Select Travel Date</string>
+
     <string-array name="gender">
         <item>Male</item>
         <item>Female</item>
         <item>Other</item>
     </string-array>
+
+    <string-array name="marital_status">
+        <item>Single</item>
+        <item>Married</item>
+        <item>Divorced</item>
+        <item>Widowed</item>
+    </string-array>
+
+    <string-array name="religion_options">
+        <item>Hindu</item>
+        <item>Christian</item>
+        <item>Muslim</item>
+        <item>Buddhist</item>
+        <item>Sikh</item>
+        <item>Jain</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="education_qualifications">
+        <item>High School</item>
+        <item>Intermediate</item>
+        <item>Diploma</item>
+        <item>Bachelor\'s Degree</item>
+        <item>Master\'s Degree</item>
+        <item>Doctorate</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="occupation_options">
+        <item>Student</item>
+        <item>Employed</item>
+        <item>Self-Employed</item>
+        <item>Unemployed</item>
+        <item>Retired</item>
+        <item>Homemaker</item>
+        <item>Other</item>
+    </string-array>
+
 </resources>

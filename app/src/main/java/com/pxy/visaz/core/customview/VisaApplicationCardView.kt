@@ -8,7 +8,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.withStyledAttributes
 import com.pxy.visaz.R
 import com.pxy.visaz.core.extension.loadImageFromFilePath
-import com.pxy.visaz.core.extension.toBase64
 import com.pxy.visaz.core.extension.toast
 import com.pxy.visaz.core.model.visa.Country
 import com.pxy.visaz.core.model.visa.VisaApplicationDetails
@@ -97,7 +96,6 @@ class VisaApplicationCardView @JvmOverloads constructor(
                 binding.etMotherName.text.toString(),
                 binding.etFatherName.text.toString(),
                 binding.etGender.text.toString(),
-                binding.etCountry.text.toString()
             )
         ) {
             if (visaModel?.profileImageBase64.isNullOrEmpty()) {
@@ -113,7 +111,6 @@ class VisaApplicationCardView @JvmOverloads constructor(
                 this?.fatherName = binding.etFatherName.text.toString()
                 this?.gender = binding.etGender.text.toString()
                 this?.selectedDate = binding.etSelectedDate.text.toString()
-                this?.country = binding.etCountry.text.toString()
                 //this?.profileImageBase64 = this?.profileImageBase64?.toBase64()
                 //this?.passportImageBase64 = this?.passportImageBase64?.toBase64()
             }
@@ -127,7 +124,6 @@ class VisaApplicationCardView @JvmOverloads constructor(
         motherName: String,
         fatherName: String,
         gender: String,
-        country: String
     ): Boolean {
         with(binding) {
             with(tilSelectedDate) {
@@ -165,17 +161,6 @@ class VisaApplicationCardView @JvmOverloads constructor(
                     return false
                 }
             }
-
-            with(tilCountry) {
-                if (validator.isValidName(country)) {
-                    error = null
-                } else {
-                    error = validator.getNameError(country)
-                    return false
-                }
-            }
-
-
         }
         return true
     }
@@ -198,7 +183,6 @@ class VisaApplicationCardView @JvmOverloads constructor(
             R.layout.item_dropdown,
             countries.map { it.name } // Display only the name
         )
-        binding.etCountry.setAdapter(adapter)
     }
 
     private fun initGenderDropDown() {

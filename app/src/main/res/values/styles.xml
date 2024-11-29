@@ -81,7 +81,7 @@
         <item name="android:textColor">@color/colorTextPrimary</item>
     </style>
 
-    <style name="Widget.MyApp.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+    <style name="Widget.MyApp.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <!-- Box background color (dark surface) -->
         <item name="boxBackgroundColor">?attr/colorSurface</item>
 
@@ -155,6 +155,8 @@
 
         <!-- Card padding -->
         <item name="contentPadding">16dp</item>
+
+        <item name="cardUseCompatPadding">true</item>
 
         <!-- Text color inside card content -->
         <item name="android:textColor">?attr/colorOnSurface</item>

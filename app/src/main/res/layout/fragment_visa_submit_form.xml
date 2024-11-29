@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.InspectionFragment">
+    android:layout_height="match_parent">
 
     <include
         android:id="@+id/layoutHeader"
@@ -15,116 +13,362 @@
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilSelectedDate"
-        style="@style/Widget.MyApp.TextInputLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/spaceMedium"
-        android:layout_marginTop="@dimen/spaceMedium"
-        android:enabled="false"
-        android:hint="@string/hint_selected_date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layoutHeader">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etSelectedDate"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="textPersonName"
-            android:maxLength="@integer/username_max_length" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvTravellerSelectedDate"
+                style="@style/Widget.MyApp.MaterialCardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/spaceSmall">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilMotherName"
-        style="@style/Widget.MyApp.TextInputLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/spaceMedium"
-        android:layout_marginTop="@dimen/spaceMedium"
-        android:hint="@string/hint_mother_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilSelectedDate">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etMotherName"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:maxLength="@integer/username_max_length" />
-    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textview.MaterialTextView
+                        style="?textAppearanceHeadline5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/select_travel_date" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilFatherName"
-        style="@style/Widget.MyApp.TextInputLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/spaceMedium"
-        android:layout_marginTop="@dimen/spaceMedium"
-        android:hint="@string/hint_father_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilMotherName">
+                    <com.pxy.visaz.core.customview.VisaDateInputView
+                        android:id="@+id/inputSelectedDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_select_date" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etFatherName"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:maxLength="@integer/username_max_length" />
-    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilGender"
-        style="@style/AppDropdownMenu"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/spaceMedium"
-        android:layout_marginTop="@dimen/spaceMedium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilFatherName">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvTravellerContainer"
+                style="@style/Widget.MyApp.MaterialCardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/spaceSmall">
 
-        <AutoCompleteTextView
-            android:id="@+id/etGender"
-            android:inputType="none"
-            android:focusable="false"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="@string/hint_gender"
-            android:maxLength="@integer/phone_max_length" />
-    </com.google.android.material.textfield.TextInputLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilCountry"
-        style="@style/AppDropdownMenu"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/spaceMedium"
-        android:layout_marginTop="@dimen/spaceMedium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilGender">
+                    <com.google.android.material.textview.MaterialTextView
+                        style="?textAppearanceHeadline5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_traveller_details" />
 
-        <AutoCompleteTextView
-            android:id="@+id/etCountry"
-            android:inputType="none"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="@string/hint_country"
-            android:maxLength="@integer/phone_max_length" />
-    </com.google.android.material.textfield.TextInputLayout>
+                    <com.pxy.visaz.core.customview.VisaInputView
+                        android:id="@+id/inputNationality"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        android:enabled="false"
+                        android:hint="@string/nationality"
+                        android:text="@string/label_india"
+                        app:visaInputViewTitle="@string/nationality" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnSubmit"
-        style="@style/PrimaryButton"
-        android:layout_width="match_parent"
-        android:layout_marginHorizontal="@dimen/spaceMedium"
-        android:layout_marginTop="@dimen/spaceMedium"
-        android:text="@string/label_submit_application"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilCountry" />
+                    <com.pxy.visaz.core.customview.VisaInputView
+                        android:id="@+id/inputFullName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        app:visaInputViewTitle="@string/full_name_of_applicant" />
+
+                    <com.pxy.visaz.core.customview.VisaInputView
+                        android:id="@+id/inputContactNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        android:inputType="phone"
+                        android:maxLength="@integer/phone_max_length"
+                        app:visaInputViewTitle="@string/contact_no" />
+
+                    <com.pxy.visaz.core.customview.VisaInputView
+                        android:id="@+id/inputEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        android:inputType="phone"
+                        android:maxLength="@integer/phone_max_length"
+                        app:visaInputViewTitle="@string/email_id" />
+
+                    <com.pxy.visaz.core.customview.VisaDropdownView
+                        android:id="@+id/dropdownGender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        android:hint="@string/hint_gender"
+                        app:visaDropdownViewItems="@array/gender"
+                        app:visaDropdownViewTitle="@string/title_gender" />
+
+                    <com.pxy.visaz.core.customview.VisaInputView
+                        android:id="@+id/inputMotherName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        app:visaInputViewTitle="@string/hint_mother_name" />
+
+                    <com.pxy.visaz.core.customview.VisaInputView
+                        android:id="@+id/inputFatherName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        app:visaInputViewTitle="@string/hint_father_name" />
+
+                    <com.pxy.visaz.core.customview.VisaInputView
+                        android:id="@+id/inputCurrentResidentialAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        android:gravity="top"
+                        android:minLines="@integer/address_min_lines"
+                        app:visaInputViewTitle="@string/current_residential_address" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvBusinessContainer"
+                style="@style/Widget.MyApp.MaterialCardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/spaceSmall"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layoutHeader"
+                app:layout_constraintVertical_bias="0">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="?textAppearanceHeadline5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_business_details" />
+
+                    <com.pxy.visaz.core.customview.VisaInputView
+                        android:id="@+id/inputNameOfBusiness"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        app:visaInputViewTitle="@string/name_of_business" />
+
+                    <com.pxy.visaz.core.customview.VisaInputView
+                        android:id="@+id/inputAddressOfBusiness"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        android:gravity="top"
+                        android:minLines="@integer/address_min_lines"
+                        app:visaInputViewTitle="@string/employer_address_of_business" />
+
+                    <com.pxy.visaz.core.customview.VisaInputView
+                        android:id="@+id/inputEmployerDesignation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        android:maxLength="@integer/username_max_length"
+                        app:visaInputViewTitle="@string/employer_designation" />
+
+                    <com.pxy.visaz.core.customview.VisaInputView
+                        android:id="@+id/inputPanNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        android:maxLength="@integer/pan_number_max_length"
+                        app:visaInputViewTitle="@string/pan_number" />
+
+                    <com.pxy.visaz.core.customview.VisaDropdownView
+                        android:id="@+id/dropdownMaritalStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        app:visaDropdownViewItems="@array/marital_status"
+                        app:visaDropdownViewTitle="@string/marital_status" />
+
+                    <com.pxy.visaz.core.customview.VisaInputView
+                        android:id="@+id/inputHusbandName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        app:visaInputViewTitle="@string/husband_name" />
+
+                    <com.pxy.visaz.core.customview.VisaDropdownView
+                        android:id="@+id/dropdownOccupation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        app:visaDropdownViewItems="@array/occupation_options"
+                        app:visaDropdownViewTitle="@string/occupation" />
+
+                    <com.pxy.visaz.core.customview.VisaDropdownView
+                        android:id="@+id/dropdownReligion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        app:visaDropdownViewItems="@array/religion_options"
+                        app:visaDropdownViewTitle="@string/religion" />
+
+                    <com.pxy.visaz.core.customview.VisaDropdownView
+                        android:id="@+id/dropdownEducationQualification"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        app:visaDropdownViewItems="@array/education_qualifications"
+                        app:visaDropdownViewTitle="@string/education_qualification" />
+
+                    <com.pxy.visaz.core.customview.VisaInputView
+                        android:id="@+id/inputMainLanguageSpoken"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        app:visaInputViewTitle="@string/main_language_spoken" />
+
+                    <com.pxy.visaz.core.customview.VisaDateInputView
+                        android:id="@+id/inputDOB"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        android:hint="@string/hint_select_date"
+                        app:visaDateInputViewTitle="@string/date_of_birth" />
+
+                    <com.pxy.visaz.core.customview.VisaInputView
+                        android:id="@+id/inputPlaceOfBirthCountry"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        app:visaInputViewTitle="@string/place_of_birth_country" />
+
+                    <com.pxy.visaz.core.customview.VisaInputView
+                        android:id="@+id/inputPassportNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        android:maxLength="@integer/username_max_length"
+                        app:visaInputViewTitle="@string/passport_number" />
+
+                    <com.pxy.visaz.core.customview.VisaInputView
+                        android:id="@+id/inputPurposeOfVisit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        app:visaInputViewTitle="@string/purpose_of_visit" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvContactInCountryContainer"
+                style="@style/Widget.MyApp.MaterialCardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/spaceSmall"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layoutHeader"
+                app:layout_constraintVertical_bias="0">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvContactInCountry"
+                        style="?textAppearanceHeadline5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/contact_in_country" />
+
+                    <com.pxy.visaz.core.customview.VisaInputView
+                        android:id="@+id/inputCountryContactName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        android:maxLength="@integer/username_max_length"
+                        app:visaInputViewTitle="@string/name" />
+
+                    <com.pxy.visaz.core.customview.VisaInputView
+                        android:id="@+id/inputRelationshipWithHost"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        android:maxLength="@integer/username_max_length"
+                        app:visaInputViewTitle="@string/relationship_with_host" />
+
+                    <com.pxy.visaz.core.customview.VisaInputView
+                        android:id="@+id/inputAddressOrHotelConfirmation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        android:gravity="top"
+                        android:minLines="@integer/address_min_lines"
+                        app:visaInputViewTitle="@string/address_or_hotel_confirmation" />
+
+                    <com.pxy.visaz.core.customview.VisaInputView
+                        android:id="@+id/inputVoucherArea"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        android:maxLength="@integer/username_max_length"
+                        app:visaInputViewTitle="@string/voucher_area" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- documents upload section -->
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvDocumentsContainer"
+                style="@style/Widget.MyApp.MaterialCardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/spaceSmall">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="?textAppearanceHeadline5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_documents_required" />
+
+                    <com.pxy.visaz.core.customview.ViewYesNoDocUpload
+                        android:id="@+id/docViewProfile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium" />
+
+                    <com.pxy.visaz.core.customview.ViewYesNoDocUpload
+                        android:id="@+id/docViewPassport"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

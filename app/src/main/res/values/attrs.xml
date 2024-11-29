@@ -4,6 +4,32 @@
         <attr name="visa_application_title" format="string" />
     </declare-styleable>
 
+    <declare-styleable name="VisaInputView">
+        <attr name="visaInputViewTitle" format="string" />
+        <attr name="android:hint" />
+        <attr name="android:text" />
+        <attr name="android:enabled" />
+        <attr name="android:inputType" />
+        <attr name="android:maxLength" />
+        <attr name="android:minLines" />
+        <attr name="android:gravity" />
+    </declare-styleable>
+
+    <declare-styleable name="VisaDateInputView">
+        <attr name="visaDateInputViewTitle" format="string" />
+        <attr name="android:hint" />
+        <attr name="android:text" />
+        <attr name="android:enabled" />
+    </declare-styleable>
+
+    <declare-styleable name="VisaDropdownView">
+        <attr name="visaDropdownViewTitle" format="string" />
+        <attr name="android:hint" />
+        <attr name="android:text" />
+        <attr name="android:enabled" />
+        <attr name="visaDropdownViewItems" format="reference" />
+    </declare-styleable>
+
     <declare-styleable name="OptionCard">
         <attr name="optionImage" format="reference" />
         <attr name="optionTitle" format="string" />

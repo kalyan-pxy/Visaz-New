@@ -87,3 +87,11 @@ fun String.base64ToImage(imageView: ImageView) {
         e.printStackTrace()
     }
 }
+
+fun ImageView.setImageUri(uri: String?) {
+    if (uri == null) {
+        setImageResource(R.drawable.ic_image_placeholder)
+    } else {
+        loadImageFromFilePath(uri)
+    }
+}

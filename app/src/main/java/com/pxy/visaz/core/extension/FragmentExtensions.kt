@@ -106,6 +106,24 @@ fun Fragment.showDatePicker(onDateSelected: (String) -> Unit) {
     }
 }
 
+fun Fragment.showDatePicker(constraintsBuilder: CalendarConstraints.Builder, onDateSelected: (String) -> Unit) {
+
+    // Create a MaterialDatePicker with constraints
+    val datePicker = MaterialDatePicker.Builder.datePicker()
+        .setTitleText("Select a date")
+        .setCalendarConstraints(constraintsBuilder.build())
+        .build()
+
+    // Show the date picker
+    datePicker.show(childFragmentManager, "DATE_PICKER")
+
+    // Handle the date selection
+    datePicker.addOnPositiveButtonClickListener { selection ->
+        val selectedDate = DateUtils.convertToDisplayDate(selection)
+        onDateSelected(selectedDate)
+    }
+}
+
 fun Context.toast(msg: String) {
     Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
 }

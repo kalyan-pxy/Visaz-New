@@ -5,8 +5,10 @@
     <item format="float" name="requiredWidthPercent" type="integer">0.2</item>
     <item format="float" name="observationsWidthPercent" type="integer">0.15</item>
     <item format="float" name="remarksWidthPercent" type="integer">0.2</item>
-    <integer name="username_max_length">60</integer>
+    <integer name="username_max_length">100</integer>
     <integer name="phone_max_length">10</integer>
     <integer name="otp_max_length">6</integer>
     <integer name="max_lines_1">1</integer>
+    <integer name="pan_number_max_length">9</integer>
+    <integer name="address_min_lines">4</integer>
 </resources>
