@@ -33,6 +33,7 @@ class VisaImagesUploadFragment : PopBackFragment() {
         super.onViewCreated(view, savedInstanceState)
         initObservers()
         initViews()
+        initListeners()
     }
 
     private fun initViews() {
@@ -53,6 +54,7 @@ class VisaImagesUploadFragment : PopBackFragment() {
             btnPassportImageUpload.setOnClickListener {
                 pickPassportImageFromGallery()
             }
+
         }
     }
 

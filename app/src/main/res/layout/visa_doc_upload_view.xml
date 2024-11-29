@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    tools:layout_margin="@dimen/spaceMedium"
+    android:padding="@dimen/spaceSmall"
+    android:background="@drawable/bg_doc_image_upload"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -47,15 +50,15 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvDocHeader"
-            style="?textAppearanceBody1"
+            style="?textAppearanceBody2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/spaceMedium"
+            android:text="@string/upload_doc"
             app:layout_constraintBottom_toBottomOf="@+id/ivDocImage"
             app:layout_constraintEnd_toStartOf="@+id/ivDocImage"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/ivDocImage"
-            tools:text="@string/app_name" />
+            app:layout_constraintTop_toTopOf="@+id/ivDocImage" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivDocImage"
@@ -67,5 +70,6 @@
             android:src="@drawable/ic_image_placeholder"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

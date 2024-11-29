@@ -65,4 +65,10 @@ class VisaInputView @JvmOverloads constructor(
     fun setText(text: String) {
         binding.textInputEditText.setText(text)
     }
+
+    fun setTitle(title: String) {
+        binding.tvTitle.text = title
+        binding.textInputEditText.hint =
+            resources.getString(R.string.prefix_input_hint, title)
+    }
 }

@@ -4,26 +4,46 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.withStyledAttributes
 import com.pxy.visaz.R
 import com.pxy.visaz.core.extension.loadImageFromFilePath
-import com.pxy.visaz.databinding.ViewYesNoDocUploadBinding
+import com.pxy.visaz.databinding.VisaDocUploadViewBinding
 
-class ViewYesNoDocUpload @JvmOverloads constructor(
+class VisaDocUploadView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
 
     private val binding =
-        ViewYesNoDocUploadBinding.inflate(LayoutInflater.from(context), this, true)
+        VisaDocUploadViewBinding.inflate(LayoutInflater.from(context), this, true)
 
     private var docName = ""
 
-    fun setData(header: String, docHeader: String) {
-        with(binding) {
-            tvOptionHeader.text = header
-            tvDocHeader.text = docHeader
+    init {
+        context.withStyledAttributes(attrs, R.styleable.VisaDocUploadView) {
+            with(binding) {
+                val title = getString(R.styleable.VisaDocUploadView_visaDocUploadViewTitle)
+                if (title != null) {
+                    tvOptionHeader.text = title
+                } else {
+                    tvOptionHeader.visibility = GONE
+                }
+                val conditionRequired = getBoolean(R.styleable.VisaDocUploadView_conditionRequired, true)
+                if (conditionRequired) {
+                    rgOption.visibility = VISIBLE
+                    clDocContainer.visibility = GONE
+                }else{
+                    rgOption.visibility = GONE
+                    clDocContainer.visibility = VISIBLE
+                }
+                setOnCheckedChangeListener()
+            }
+        }
+    }
 
+    private fun setOnCheckedChangeListener() {
+        with(binding) {
             rgOption.setOnCheckedChangeListener { _, checkedId ->
                 when (checkedId) {
                     R.id.rbYes -> {
@@ -54,6 +74,6 @@ class ViewYesNoDocUpload @JvmOverloads constructor(
     }
 
     fun addDocImageClickListener(listener: OnClickListener) {
-        binding.ivDocImage.setOnClickListener(listener)
+        binding.clDocContainer.setOnClickListener(listener)
     }
 }

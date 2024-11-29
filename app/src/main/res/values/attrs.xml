@@ -30,6 +30,11 @@
         <attr name="visaDropdownViewItems" format="reference" />
     </declare-styleable>
 
+    <declare-styleable name="VisaDocUploadView">
+        <attr name="visaDocUploadViewTitle" format="string" />
+        <attr name="conditionRequired" format="boolean"/>
+    </declare-styleable>
+
     <declare-styleable name="OptionCard">
         <attr name="optionImage" format="reference" />
         <attr name="optionTitle" format="string" />

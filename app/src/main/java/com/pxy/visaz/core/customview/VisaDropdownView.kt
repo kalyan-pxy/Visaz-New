@@ -57,4 +57,15 @@ class VisaDropdownView @JvmOverloads constructor(
     fun setText(text: String) {
         binding.autoCompleteTextView.setText(text)
     }
+
+    fun getText(): String {
+        return binding.autoCompleteTextView.text.toString()
+    }
+
+    fun onItemSelect(function: (selectedOption: String) -> Unit) {
+        binding.autoCompleteTextView.setOnItemClickListener { parent, _, position, _ ->
+            val selectedOption = parent.getItemAtPosition(position).toString()
+            function.invoke(selectedOption)
+        }
+    }
 }

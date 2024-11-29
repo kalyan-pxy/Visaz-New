@@ -16,7 +16,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnSubmit"
         app:layout_constraintTop_toBottomOf="@+id/layoutHeader">
 
         <LinearLayout
@@ -80,6 +80,14 @@
                         app:visaInputViewTitle="@string/nationality" />
 
                     <com.pxy.visaz.core.customview.VisaInputView
+                        android:id="@+id/inputNationalId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        android:hint="@string/aadhaar_number"
+                        app:visaInputViewTitle="@string/national_id" />
+
+                    <com.pxy.visaz.core.customview.VisaInputView
                         android:id="@+id/inputFullName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -112,6 +120,23 @@
                         android:hint="@string/hint_gender"
                         app:visaDropdownViewItems="@array/gender"
                         app:visaDropdownViewTitle="@string/title_gender" />
+
+                    <com.pxy.visaz.core.customview.VisaDropdownView
+                        android:id="@+id/dropdownMaritalStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        android:visibility="gone"
+                        app:visaDropdownViewItems="@array/marital_status"
+                        app:visaDropdownViewTitle="@string/marital_status" />
+
+                    <com.pxy.visaz.core.customview.VisaInputView
+                        android:id="@+id/inputHusbandName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        android:visibility="gone"
+                        app:visaInputViewTitle="@string/husband_name" />
 
                     <com.pxy.visaz.core.customview.VisaInputView
                         android:id="@+id/inputMotherName"
@@ -194,21 +219,6 @@
                         android:layout_marginTop="@dimen/spaceMedium"
                         android:maxLength="@integer/pan_number_max_length"
                         app:visaInputViewTitle="@string/pan_number" />
-
-                    <com.pxy.visaz.core.customview.VisaDropdownView
-                        android:id="@+id/dropdownMaritalStatus"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spaceMedium"
-                        app:visaDropdownViewItems="@array/marital_status"
-                        app:visaDropdownViewTitle="@string/marital_status" />
-
-                    <com.pxy.visaz.core.customview.VisaInputView
-                        android:id="@+id/inputHusbandName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spaceMedium"
-                        app:visaInputViewTitle="@string/husband_name" />
 
                     <com.pxy.visaz.core.customview.VisaDropdownView
                         android:id="@+id/dropdownOccupation"
@@ -353,22 +363,66 @@
                         android:layout_height="wrap_content"
                         android:text="@string/label_documents_required" />
 
-                    <com.pxy.visaz.core.customview.ViewYesNoDocUpload
-                        android:id="@+id/docViewProfile"
+                    <com.pxy.visaz.core.customview.VisaDocUploadView
+                        android:id="@+id/docProfilePic"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spaceMedium" />
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        app:conditionRequired="false"
+                        app:visaDocUploadViewTitle="@string/doc_profile_image" />
 
-                    <com.pxy.visaz.core.customview.ViewYesNoDocUpload
-                        android:id="@+id/docViewPassport"
+                    <com.pxy.visaz.core.customview.VisaDocUploadView
+                        android:id="@+id/docPassport"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spaceMedium" />
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        app:conditionRequired="false"
+                        app:visaDocUploadViewTitle="@string/doc_current_passport" />
+
+                    <com.pxy.visaz.core.customview.VisaDocUploadView
+                        android:id="@+id/docPreviousPassport"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        app:visaDocUploadViewTitle="@string/doc_previous_passport_exhibiting" />
+
+                    <com.pxy.visaz.core.customview.VisaDocUploadView
+                        android:id="@+id/docLongTermFd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        app:visaDocUploadViewTitle="@string/doc_long_term_fd" />
+
+                    <com.pxy.visaz.core.customview.VisaDocUploadView
+                        android:id="@+id/docIncomeTaxReturns"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        app:visaDocUploadViewTitle="@string/doc_income_tax_returns" />
+
+                    <com.pxy.visaz.core.customview.VisaDocUploadView
+                        android:id="@+id/docLetterOfInvitation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spaceMedium"
+                        app:visaDocUploadViewTitle="@string/doc_letter_of_invitation" />
+
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
     </ScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSubmit"
+        style="@style/PrimaryButton"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/spaceMedium"
+        android:text="@string/label_submit_application"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

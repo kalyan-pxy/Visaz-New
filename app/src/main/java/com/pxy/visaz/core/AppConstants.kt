@@ -11,4 +11,5 @@ object AppConstants {
     const val UNIQUE_HASH = "uniqueHash"
 
     const val BACK_BUTTON_DELAY_TIMER = 2000.toLong()
+
 }

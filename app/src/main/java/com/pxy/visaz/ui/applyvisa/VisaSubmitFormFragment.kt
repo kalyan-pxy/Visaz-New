@@ -8,13 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.view.isVisible
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointBackward
 import com.google.firebase.util.nextAlphanumericString
 import com.pxy.visaz.R
 import com.pxy.visaz.core.AppConstants
 import com.pxy.visaz.core.PopBackFragment
-import com.pxy.visaz.core.customview.ViewYesNoDocUpload
+import com.pxy.visaz.core.customview.VisaDocUploadView
 import com.pxy.visaz.core.extension.copyFileToAppStorage
 import com.pxy.visaz.core.extension.showDatePicker
 import com.pxy.visaz.core.extension.uriToFilePath
@@ -32,7 +33,7 @@ class VisaSubmitFormFragment : PopBackFragment() {
     private lateinit var binding: FragmentVisaSubmitFormBinding
     private var visaApplicationModel: VisaApplicationModel? = null
     private var selectedDate: String? = null
-    private var selectedViewYesNoDocUpload: ViewYesNoDocUpload? = null
+    private var selectedViewYesNoDocUpload: VisaDocUploadView? = null
 
     private val validator by lazy { Validator() }
 
@@ -66,14 +67,65 @@ class VisaSubmitFormFragment : PopBackFragment() {
             inputDOB.addOnClickListener {
                 showDOBDatePicker()
             }
-            docViewProfile.addDocImageClickListener {
-                selectedViewYesNoDocUpload = docViewProfile
+            dropdownGender.onItemSelect {
+                val genderArray = resources.getStringArray(R.array.gender)
+                binding.dropdownMaritalStatus.isVisible =
+                    (it == genderArray[0] || it == genderArray[1])
+                checkMarriageStatus()
+            }
+            dropdownMaritalStatus.onItemSelect {
+                checkMarriageStatus()
+            }
+
+            docProfilePic.addDocImageClickListener {
+                selectedViewYesNoDocUpload = docProfilePic
                 pickImage.launch("image/*")
             }
-            docViewPassport.addDocImageClickListener {
-                selectedViewYesNoDocUpload = docViewPassport
+            docPassport.addDocImageClickListener {
+                selectedViewYesNoDocUpload = docPassport
                 pickImage.launch("image/*")
             }
+            docPreviousPassport.addDocImageClickListener {
+                selectedViewYesNoDocUpload = docPreviousPassport
+                pickImage.launch("image/*")
+            }
+            docLongTermFd.addDocImageClickListener {
+                selectedViewYesNoDocUpload = docLongTermFd
+                pickImage.launch("image/*")
+            }
+            docIncomeTaxReturns.addDocImageClickListener {
+                selectedViewYesNoDocUpload = docIncomeTaxReturns
+                pickImage.launch("image/*")
+            }
+            docLetterOfInvitation.addDocImageClickListener {
+                selectedViewYesNoDocUpload = docLetterOfInvitation
+                pickImage.launch("image/*")
+            }
+        }
+    }
+
+    private fun FragmentVisaSubmitFormBinding.checkMarriageStatus() {
+        val marriedArray = resources.getStringArray(R.array.marital_status)
+        val genderArray = resources.getStringArray(R.array.gender)
+
+        val selectedGenderStatus = dropdownGender.getText()
+        val selectedMaritalStatus = dropdownMaritalStatus.getText()
+        if ((selectedGenderStatus == genderArray[0] || selectedGenderStatus == genderArray[1])) {
+            if (selectedMaritalStatus == marriedArray[1]) {
+                inputHusbandName.visibility = View.VISIBLE
+                inputHusbandName.setTitle(
+                    if (dropdownGender.getText() == genderArray[0]) {
+                        getString(R.string.wife_name)
+                    } else {
+                        getString(R.string.husband_name)
+                    }
+                )
+            } else {
+                inputHusbandName.visibility = View.GONE
+            }
+        } else {
+            dropdownMaritalStatus.isVisible = false
+            inputHusbandName.isVisible = false
         }
     }
 
@@ -98,16 +150,6 @@ class VisaSubmitFormFragment : PopBackFragment() {
         visaApplicationModel?.let {
             with(binding) {
                 tvContactInCountry.text = getString(R.string.contact_in_country, it.name)
-
-                docViewProfile.setData(
-                    getString(R.string.doc_previous_passport_exhibiting),
-                    getString(R.string.upload_doc)
-                )
-
-                docViewPassport.setData(
-                    getString(R.string.doc_long_term_fd),
-                    getString(R.string.upload_doc)
-                )
             }
         }
     }

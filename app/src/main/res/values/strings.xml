@@ -98,6 +98,7 @@
     <string name="pan_number">PAN number</string>
     <string name="marital_status">Marital Status</string>
     <string name="husband_name">Husband\'s name</string>
+    <string name="wife_name">Wife\'s name</string>
     <string name="occupation">Occupation</string>
     <string name="religion">Religion</string>
     <string name="education_qualification">Education qualification</string>
@@ -137,6 +138,7 @@
 
     <!--if yes then upload doc-->
     <string name="doc_letter_of_invitation">Letter of invitation from Dubai based close family member, along with photocopy of Passport, resident visa and proof of relationship</string>
+
     <string name="label_india">India</string>
     <string name="label_yes">Yes</string>
     <string name="label_no">No</string>
@@ -147,6 +149,8 @@
     <string name="label_traveller_details">Traveller Details</string>
     <string name="hint_travel_date">Travel date</string>
     <string name="select_travel_date">Select Travel Date</string>
+    <string name="national_id">National Id</string>
+    <string name="aadhaar_number">Aadhaar Number</string>
 
     <string-array name="gender">
         <item>Male</item>
