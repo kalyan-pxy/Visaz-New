@@ -46,7 +46,7 @@
                     android:id="@+id/etNationality"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:maxLength="@integer/username_max_length" />
+                    android:maxLength="@integer/general_max_length" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -86,7 +86,7 @@
                     android:id="@+id/etFullName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:maxLength="@integer/username_max_length" />
+                    android:maxLength="@integer/general_max_length" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -156,7 +156,7 @@
                     android:id="@+id/etMotherName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:maxLength="@integer/username_max_length" />
+                    android:maxLength="@integer/general_max_length" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -174,7 +174,7 @@
                     android:id="@+id/etFatherName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:maxLength="@integer/username_max_length" />
+                    android:maxLength="@integer/general_max_length" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -206,7 +206,7 @@
                     android:id="@+id/etNameOfBusiness"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:maxLength="@integer/username_max_length" />
+                    android:maxLength="@integer/general_max_length" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -239,7 +239,7 @@
                     android:id="@+id/etEmployerDesignation"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:maxLength="@integer/username_max_length" />
+                    android:maxLength="@integer/general_max_length" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -304,7 +304,7 @@
                     android:id="@+id/etOccupation"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:maxLength="@integer/username_max_length" />
+                    android:maxLength="@integer/general_max_length" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -360,7 +360,7 @@
                     android:id="@+id/etMainLanguageSpoken"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:maxLength="@integer/username_max_length" />
+                    android:maxLength="@integer/general_max_length" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -397,7 +397,7 @@
                     android:id="@+id/etPlaceOfBirthCountry"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:maxLength="@integer/username_max_length" />
+                    android:maxLength="@integer/general_max_length" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -412,7 +412,7 @@
                     android:id="@+id/etPassportDetail"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:maxLength="@integer/username_max_length" />
+                    android:maxLength="@integer/general_max_length" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -427,7 +427,7 @@
                     android:id="@+id/etPurposeOfVisit"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:maxLength="@integer/username_max_length" />
+                    android:maxLength="@integer/general_max_length" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textview.MaterialTextView
@@ -449,7 +449,7 @@
                     android:id="@+id/etCountryContactName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:maxLength="@integer/username_max_length" />
+                    android:maxLength="@integer/general_max_length" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -464,7 +464,7 @@
                     android:id="@+id/etRelationshipWithHost"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:maxLength="@integer/username_max_length" />
+                    android:maxLength="@integer/general_max_length" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -496,7 +496,7 @@
                     android:id="@+id/etVoucherArea"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:maxLength="@integer/username_max_length" />
+                    android:maxLength="@integer/general_max_length" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- documents upload section -->

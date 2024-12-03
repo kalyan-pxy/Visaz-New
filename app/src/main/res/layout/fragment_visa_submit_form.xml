@@ -108,8 +108,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spaceMedium"
-                        android:inputType="phone"
-                        android:maxLength="@integer/phone_max_length"
+                        android:inputType="textEmailAddress"
+                        android:maxLength="@integer/general_max_length"
                         app:visaInputViewTitle="@string/email_id" />
 
                     <com.pxy.visaz.core.customview.VisaDropdownView
@@ -209,7 +209,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spaceMedium"
-                        android:maxLength="@integer/username_max_length"
+                        android:maxLength="@integer/general_max_length"
                         app:visaInputViewTitle="@string/employer_designation" />
 
                     <com.pxy.visaz.core.customview.VisaInputView
@@ -244,12 +244,13 @@
                         app:visaDropdownViewItems="@array/education_qualifications"
                         app:visaDropdownViewTitle="@string/education_qualification" />
 
-                    <com.pxy.visaz.core.customview.VisaInputView
-                        android:id="@+id/inputMainLanguageSpoken"
+                    <com.pxy.visaz.core.customview.VisaDropdownView
+                        android:id="@+id/dropdownMainLanguageSpoken"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spaceMedium"
-                        app:visaInputViewTitle="@string/main_language_spoken" />
+                        app:visaDropdownViewItems="@array/main_language_options"
+                        app:visaDropdownViewTitle="@string/main_language_spoken" />
 
                     <com.pxy.visaz.core.customview.VisaDateInputView
                         android:id="@+id/inputDOB"
@@ -264,6 +265,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spaceMedium"
+                        android:text="@string/label_india"
+                        android:enabled="false"
                         app:visaInputViewTitle="@string/place_of_birth_country" />
 
                     <com.pxy.visaz.core.customview.VisaInputView
@@ -271,7 +274,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spaceMedium"
-                        android:maxLength="@integer/username_max_length"
+                        android:maxLength="@integer/general_max_length"
                         app:visaInputViewTitle="@string/passport_number" />
 
                     <com.pxy.visaz.core.customview.VisaInputView
@@ -312,7 +315,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spaceMedium"
-                        android:maxLength="@integer/username_max_length"
+                        android:maxLength="@integer/general_max_length"
                         app:visaInputViewTitle="@string/name" />
 
                     <com.pxy.visaz.core.customview.VisaInputView
@@ -320,7 +323,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spaceMedium"
-                        android:maxLength="@integer/username_max_length"
+                        android:maxLength="@integer/general_max_length"
                         app:visaInputViewTitle="@string/relationship_with_host" />
 
                     <com.pxy.visaz.core.customview.VisaInputView
@@ -337,7 +340,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spaceMedium"
-                        android:maxLength="@integer/username_max_length"
+                        android:maxLength="@integer/general_max_length"
                         app:visaInputViewTitle="@string/voucher_area" />
 
                 </LinearLayout>

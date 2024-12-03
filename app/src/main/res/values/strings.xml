@@ -195,4 +195,19 @@
         <item>Other</item>
     </string-array>
 
+    <string-array name="main_language_options">
+        <item>English</item>
+        <item>Hindi</item>
+        <item>Telugu</item>
+        <item>Tamil</item>
+        <item>Bengali</item>
+        <item>Kannada</item>
+        <item>Malayalam</item>
+        <item>Punjabi</item>
+        <item>Gujarati</item>
+        <item>Marathi</item>
+        <item>Urdu</item>
+        <item>Other</item>
+    </string-array>
+
 </resources>

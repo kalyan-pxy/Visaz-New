@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointBackward
 import com.google.firebase.util.nextAlphanumericString
@@ -61,6 +62,88 @@ class VisaSubmitFormFragment : PopBackFragment() {
 
     private fun initListeners() {
         with(binding) {
+            btnSubmit.setOnClickListener {
+                val travelDate = inputSelectedDate.getText()
+                val nationality = inputNationality.getText()
+                val nationalId = inputNationalId.getText()
+                val fullName = inputFullName.getText()
+                val contactNumber = inputContactNumber.getText()
+                val email = inputEmail.getText()
+                val gender = dropdownGender.getText()
+                val maritalStatus = dropdownMaritalStatus.getText()
+                val husbandName = inputHusbandName.getText()
+                val motherName = inputMotherName.getText()
+                val fatherName = inputFatherName.getText()
+                val currentResidentialAddress = inputCurrentResidentialAddress.getText()
+                val nameOfBusiness = inputNameOfBusiness.getText()
+                val addressOfBusiness = inputAddressOfBusiness.getText()
+                val employerDesignation = inputEmployerDesignation.getText()
+                val panNumber = inputPanNumber.getText()
+                val occupation = dropdownOccupation.getText()
+                val religion = dropdownReligion.getText()
+                val educationQualification = dropdownEducationQualification.getText()
+                val mainLanguageSpoken = dropdownMainLanguageSpoken.getText()
+                val dob = inputDOB.getText()
+                val placeOfBirthCountry = inputPlaceOfBirthCountry.getText()
+                val passportNumber = inputPassportNumber.getText()
+                val purposeOfVisit = inputPurposeOfVisit.getText()
+
+                //contacts in country
+                val countryContactName = inputCountryContactName.getText()
+                val relationshipWithHost = inputRelationshipWithHost.getText()
+                val addressOrHotelConfirmation = inputAddressOrHotelConfirmation.getText()
+                val voucherArea = inputVoucherArea.getText()
+
+                //documents
+
+                val profileImage = docProfilePic.getImagePath()
+                val passport = docPassport.getImagePath()
+                val previousPassport = docPreviousPassport.getImagePath()
+                val longTermFd = docLongTermFd.getImagePath()
+                val incomeTaxReturns = docIncomeTaxReturns.getImagePath()
+                val letterOfInvitation = docLetterOfInvitation.getImagePath()
+                val isValid = validateVisaApplication(
+                    travelDate,
+                    nationality,
+                    nationalId,
+                    fullName,
+                    contactNumber,
+                    email,
+                    gender,
+                    maritalStatus,
+                    husbandName,
+                    motherName,
+                    fatherName,
+                    currentResidentialAddress,
+                    nameOfBusiness,
+                    addressOfBusiness,
+                    employerDesignation,
+                    panNumber,
+                    occupation,
+                    religion,
+                    educationQualification,
+                    mainLanguageSpoken,
+                    dob,
+                    placeOfBirthCountry,
+                    passportNumber,
+                    purposeOfVisit,
+                    countryContactName,
+                    relationshipWithHost,
+                    addressOrHotelConfirmation,
+                    voucherArea,
+                    profileImage,
+                    passport,
+                    previousPassport,
+                    longTermFd,
+                    incomeTaxReturns,
+                    letterOfInvitation
+                )
+                if (isValid) {
+                    toast(getString(R.string.visa_application_submitted_successfully))
+                    findNavController().navigate(R.id.action_visaSubmitFormFragment_to_homeFragment)
+                }
+
+            }
             inputSelectedDate.addOnClickListener {
                 showSelectedDatePicker()
             }
@@ -102,6 +185,109 @@ class VisaSubmitFormFragment : PopBackFragment() {
                 pickImage.launch("image/*")
             }
         }
+    }
+
+    private fun validateVisaApplication(
+        travelDate: String,
+        nationality: String,
+        nationalId: String,
+        fullName: String,
+        contactNumber: String,
+        email: String,
+        gender: String,
+        maritalStatus: String,
+        husbandName: String,
+        motherName: String,
+        fatherName: String,
+        currentResidentialAddress: String,
+        nameOfBusiness: String,
+        addressOfBusiness: String,
+        employerDesignation: String,
+        panNumber: String,
+        occupation: String,
+        religion: String,
+        educationQualification: String,
+        mainLanguageSpoken: String,
+        dob: String,
+        placeOfBirthCountry: String,
+        passportNumber: String,
+        purposeOfVisit: String,
+        countryContactName: String,
+        relationshipWithHost: String,
+        addressOrHotelConfirmation: String,
+        voucherArea: String,
+        profileImage: String,
+        passport: String,
+        previousPassport: String,
+        longTermFd: String,
+        incomeTaxReturns: String,
+        letterOfInvitation: String
+    ): Boolean {
+        /*val model = VisaSubmitApplicationModel(
+            travelDate,
+            nationality,
+            nationalId,
+            fullName,
+            contactNumber,
+            email,
+            gender,
+            maritalStatus,
+            husbandName,
+            motherName,
+            fatherName,
+            currentResidentialAddress,
+            nameOfBusiness,
+            addressOfBusiness,
+            employerDesignation,
+            panNumber,
+            occupation,
+            religion,
+            educationQualification,
+            mainLanguageSpoken,
+            dob,
+            placeOfBirthCountry,
+            passportNumber,
+            purposeOfVisit,
+            countryContactName,
+            relationshipWithHost,
+            addressOrHotelConfirmation,
+            voucherArea,
+            profileImage,
+            passport,
+            previousPassport,
+            longTermFd,
+            incomeTaxReturns,
+            letterOfInvitation
+        )*/
+        if (validator.isInputValid(travelDate)) {
+            binding.inputSelectedDate.setError(null)
+        } else {
+            binding.inputSelectedDate.setError(validator.getNameError(travelDate))
+            return false
+        }
+
+        if (validator.isInputValid(nationality)) {
+            binding.inputNationality.setError(null)
+        } else {
+            binding.inputNationality.setError(validator.getNameError(nationality))
+            return false
+        }
+
+        if (validator.isInputValid(nationalId)) {
+            binding.inputNationalId.setError(null)
+        } else {
+            binding.inputNationalId.setError(validator.getInputError(nationalId))
+            return false
+        }
+
+        if (validator.isInputValid(fullName)) {
+            binding.inputFullName.setError(null)
+        } else {
+            binding.inputFullName.setError(validator.getInputError(fullName))
+            return false
+        }
+
+        return true
     }
 
     private fun FragmentVisaSubmitFormBinding.checkMarriageStatus() {

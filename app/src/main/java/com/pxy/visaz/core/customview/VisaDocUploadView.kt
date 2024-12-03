@@ -19,6 +19,7 @@ class VisaDocUploadView @JvmOverloads constructor(
         VisaDocUploadViewBinding.inflate(LayoutInflater.from(context), this, true)
 
     private var docName = ""
+    private var imagePath = ""
 
     init {
         context.withStyledAttributes(attrs, R.styleable.VisaDocUploadView) {
@@ -60,6 +61,7 @@ class VisaDocUploadView @JvmOverloads constructor(
 
     fun setImageUri(uri: String?, randomImageName: String) {
         docName = randomImageName
+        imagePath = uri ?: ""
         with(binding.ivDocImage) {
             if (uri == null) {
                 setImageResource(R.drawable.ic_image_placeholder)
@@ -71,6 +73,10 @@ class VisaDocUploadView @JvmOverloads constructor(
 
     fun getDocName(): String {
         return docName
+    }
+
+    fun getImagePath(): String {
+        return imagePath
     }
 
     fun addDocImageClickListener(listener: OnClickListener) {

@@ -62,8 +62,16 @@ class VisaInputView @JvmOverloads constructor(
         }
     }
 
+    fun setError(error: String?) {
+        binding.textInputLayout.error = error
+    }
+
     fun setText(text: String) {
         binding.textInputEditText.setText(text)
+    }
+
+    fun getText(): String {
+        return binding.textInputEditText.text.toString()
     }
 
     fun setTitle(title: String) {
