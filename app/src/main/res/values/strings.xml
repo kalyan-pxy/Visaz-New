@@ -33,7 +33,7 @@
     <string name="welcome_user">Welcome %s !!!</string>
     <string name="label_logout">Logout</string>
     <string name="visaz_header_title">VISAZ - Your Gateway to Global Opportunities</string>
-    <string name="label_visa_list_title">Immigration Opportunities</string>
+    <string name="label_visa_list_title">Countries</string>
     <string name="label_get_on">Get on %s</string>
     <string name="label_price">Price</string>
     <string name="travellers">Travellers</string>
@@ -63,7 +63,7 @@
     <string name="visa_application_submitted_successfully">Visa application submitted successfully</string>
     <string name="error_visa_input">Please check all mandatory inputs</string>
     <string name="error_profile_image">Please upload profile image</string>
-    <string name="error_passport_image">Please upload passport image</string>
+    <string name="error_passport_image">Please upload passport doc image</string>
     <string name="account_settings">Account settings</string>
 
     <string name="name">Name</string>
@@ -151,6 +151,30 @@
     <string name="select_travel_date">Select Travel Date</string>
     <string name="national_id">National Id</string>
     <string name="aadhaar_number">Aadhaar Number</string>
+    <string name="error_empty_travel_date">Please select travel date</string>
+    <string name="error_empty_gender">Please select gender</string>
+    <string name="error_empty_marital_status">Please select material status</string>
+    <string name="error_empty_husband_name">Please enter name</string>
+    <string name="error_empty_mother_name">Please enter mother\'s name</string>
+    <string name="error_empty_father_name">Please enter father\'s name</string>
+    <string name="error_empty_current_residential_address">Please enter current residential address</string>
+    <string name="error_empty_name_of_business">Please enter name of the business</string>
+    <string name="error_empty_address_of_business">Please enter business\'s address</string>
+    <string name="error_empty_employer_designation">Please enter designation</string>
+    <string name="error_empty_occupation">Please select occupation</string>
+    <string name="error_empty_religion">Please select religion</string>
+    <string name="error_empty_education_qualification">Please select educational qualification</string>
+    <string name="error_empty_main_language_spoken">Please select main spoken language</string>
+    <string name="error_empty_dob">Please select date of birth</string>
+    <string name="error_empty_purpose_of_visit">Please enter purpose of visit</string>
+    <string name="error_empty_country_contact_name">Please enter contact person name</string>
+    <string name="error_empty_relationship_with_host">Please enter relationship with host</string>
+    <string name="error_empty_address_or_hotel_confirmation">Please enter address</string>
+    <string name="error_empty_voucher_area">Please enter voucher area</string>
+    <string name="error_previous_passport_image">Please upload your previous passport doc image</string>
+    <string name="error_long_term_fd">Please upload long term FD doc image</string>
+    <string name="error_income_tax_returns">Please upload income tax return doc image</string>
+    <string name="error_letter_of_invitation">Please upload letter of invitation doc image</string>
 
     <string-array name="gender">
         <item>Male</item>

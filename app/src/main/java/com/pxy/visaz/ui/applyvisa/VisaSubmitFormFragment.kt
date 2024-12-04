@@ -95,7 +95,6 @@ class VisaSubmitFormFragment : PopBackFragment() {
                 val voucherArea = inputVoucherArea.getText()
 
                 //documents
-
                 val profileImage = docProfilePic.getImagePath()
                 val passport = docPassport.getImagePath()
                 val previousPassport = docPreviousPassport.getImagePath()
@@ -139,6 +138,43 @@ class VisaSubmitFormFragment : PopBackFragment() {
                     letterOfInvitation
                 )
                 if (isValid) {
+                    val model = VisaSubmitApplicationModel(
+                        travelDate,
+                        nationality,
+                        nationalId,
+                        fullName,
+                        contactNumber,
+                        email,
+                        gender,
+                        maritalStatus,
+                        husbandName,
+                        motherName,
+                        fatherName,
+                        currentResidentialAddress,
+                        nameOfBusiness,
+                        addressOfBusiness,
+                        employerDesignation,
+                        panNumber,
+                        occupation,
+                        religion,
+                        educationQualification,
+                        mainLanguageSpoken,
+                        dob,
+                        placeOfBirthCountry,
+                        passportNumber,
+                        purposeOfVisit,
+                        countryContactName,
+                        relationshipWithHost,
+                        addressOrHotelConfirmation,
+                        voucherArea,
+                        profileImage,
+                        passport,
+                        previousPassport,
+                        longTermFd,
+                        incomeTaxReturns,
+                        letterOfInvitation
+                    )
+                    visaViewModel.submitVisaApplication(model)
                     toast(getString(R.string.visa_application_submitted_successfully))
                     findNavController().navigate(R.id.action_visaSubmitFormFragment_to_homeFragment)
                 }
@@ -223,68 +259,292 @@ class VisaSubmitFormFragment : PopBackFragment() {
         incomeTaxReturns: String,
         letterOfInvitation: String
     ): Boolean {
-        /*val model = VisaSubmitApplicationModel(
-            travelDate,
-            nationality,
-            nationalId,
-            fullName,
-            contactNumber,
-            email,
-            gender,
-            maritalStatus,
-            husbandName,
-            motherName,
-            fatherName,
-            currentResidentialAddress,
-            nameOfBusiness,
-            addressOfBusiness,
-            employerDesignation,
-            panNumber,
-            occupation,
-            religion,
-            educationQualification,
-            mainLanguageSpoken,
-            dob,
-            placeOfBirthCountry,
-            passportNumber,
-            purposeOfVisit,
-            countryContactName,
-            relationshipWithHost,
-            addressOrHotelConfirmation,
-            voucherArea,
-            profileImage,
-            passport,
-            previousPassport,
-            longTermFd,
-            incomeTaxReturns,
-            letterOfInvitation
-        )*/
-        if (validator.isInputValid(travelDate)) {
-            binding.inputSelectedDate.setError(null)
-        } else {
-            binding.inputSelectedDate.setError(validator.getNameError(travelDate))
-            return false
-        }
+        with(binding) {
+            if (validator.isInputValid(travelDate)) {
+                inputSelectedDate.setError(null)
+            } else {
+                inputSelectedDate.setError(getString(R.string.error_empty_travel_date))
+                return false
+            }
 
-        if (validator.isInputValid(nationality)) {
-            binding.inputNationality.setError(null)
+            /* if (validator.isInputValid(nationality)) {
+            inputNationality.setError(null)
         } else {
-            binding.inputNationality.setError(validator.getNameError(nationality))
+            inputNationality.setError(validator.getNameError(nationality))
             return false
-        }
+        }*/
 
-        if (validator.isInputValid(nationalId)) {
-            binding.inputNationalId.setError(null)
-        } else {
-            binding.inputNationalId.setError(validator.getInputError(nationalId))
-            return false
-        }
+            if (validator.isValidAadhaarNumber(nationalId)) {
+                inputNationalId.setError(null)
+            } else {
+                inputNationalId.setError(validator.getAadhaarError(nationalId))
+                return false
+            }
 
-        if (validator.isInputValid(fullName)) {
-            binding.inputFullName.setError(null)
-        } else {
-            binding.inputFullName.setError(validator.getInputError(fullName))
-            return false
+            if (validator.isInputValid(fullName)) {
+                inputFullName.setError(null)
+            } else {
+                inputFullName.setError(validator.getInputError(fullName))
+                return false
+            }
+
+            if (validator.isValidPhoneNumber(contactNumber)) {
+                inputContactNumber.setError(null)
+            } else {
+                inputContactNumber.setError(validator.getPhoneNumberError(contactNumber))
+                return false
+            }
+
+            if (validator.isValidEmail(email)) {
+                inputEmail.setError(null)
+            } else {
+                inputEmail.setError(validator.getEmailError(email))
+                return false
+            }
+
+            if (validator.isInputValid(gender)) {
+                dropdownGender.setError(null)
+            } else {
+                dropdownGender.setError(getString(R.string.error_empty_gender))
+                return false
+            }
+
+            with(dropdownMaritalStatus) {
+                if (isVisible) {
+                    if (validator.isInputValid(maritalStatus)) {
+                        setError(null)
+                    } else {
+                        setError(getString(R.string.error_empty_marital_status))
+                        return false
+                    }
+                }
+            }
+
+            with(inputHusbandName) {
+                if (isVisible) {
+                    if (validator.isInputValid(husbandName)) {
+                        setError(null)
+                    } else {
+                        setError(getString(R.string.error_empty_husband_name))
+                        return false
+                    }
+                }
+            }
+
+            if (validator.isInputValid(motherName)) {
+                inputMotherName.setError(null)
+            } else {
+                inputMotherName.setError(getString(R.string.error_empty_mother_name))
+                return false
+            }
+
+            if (validator.isInputValid(fatherName)) {
+                inputFatherName.setError(null)
+            } else {
+                inputFatherName.setError(getString(R.string.error_empty_father_name))
+                return false
+            }
+
+            if (validator.isInputValid(currentResidentialAddress)) {
+                inputCurrentResidentialAddress.setError(null)
+            } else {
+                inputCurrentResidentialAddress.setError(
+                    getString(R.string.error_empty_current_residential_address)
+                )
+                return false
+            }
+
+            if (validator.isInputValid(nameOfBusiness)) {
+                inputNameOfBusiness.setError(null)
+            } else {
+                inputNameOfBusiness.setError(getString(R.string.error_empty_name_of_business))
+                return false
+            }
+
+            if (validator.isInputValid(addressOfBusiness)) {
+                inputAddressOfBusiness.setError(null)
+            } else {
+                inputAddressOfBusiness.setError(getString(R.string.error_empty_address_of_business))
+                return false
+            }
+
+            if (validator.isInputValid(employerDesignation)) {
+                inputEmployerDesignation.setError(null)
+            } else {
+                inputEmployerDesignation.setError(
+                    getString(R.string.error_empty_employer_designation)
+                )
+                return false
+            }
+
+            if (validator.isValidPAN(panNumber)) {
+                inputPanNumber.setError(null)
+            } else {
+                inputPanNumber.setError(validator.getPanError(panNumber))
+                return false
+            }
+
+            if (validator.isInputValid(occupation)) {
+                dropdownOccupation.setError(null)
+            } else {
+                dropdownOccupation.setError(getString(R.string.error_empty_occupation))
+                return false
+            }
+
+            if (validator.isInputValid(religion)) {
+                dropdownReligion.setError(null)
+            } else {
+                dropdownReligion.setError(getString(R.string.error_empty_religion))
+                return false
+            }
+
+            if (validator.isInputValid(educationQualification)) {
+                dropdownEducationQualification.setError(null)
+            } else {
+                dropdownEducationQualification.setError(
+                    getString(R.string.error_empty_education_qualification)
+                )
+                return false
+            }
+
+            if (validator.isInputValid(mainLanguageSpoken)) {
+                dropdownMainLanguageSpoken.setError(null)
+            } else {
+                dropdownMainLanguageSpoken.setError(
+                    getString(R.string.error_empty_main_language_spoken)
+                )
+                return false
+            }
+
+            if (validator.isInputValid(dob)) {
+                inputDOB.setError(null)
+            } else {
+                inputDOB.setError(getString(R.string.error_empty_dob))
+                return false
+            }
+
+            /*if (validator.isInputValid(placeOfBirthCountry)) {
+                inputPlaceOfBirthCountry.setError(null)
+            } else {
+                inputPlaceOfBirthCountry.setError(
+                    validator.getInputError(
+                        placeOfBirthCountry
+                    )
+                )
+                return false
+            }*/
+
+            if (validator.isValidIndianPassport(passportNumber)) {
+                inputPassportNumber.setError(null)
+            } else {
+                inputPassportNumber.setError(validator.getPassportError(passportNumber))
+                return false
+            }
+
+            if (validator.isInputValid(purposeOfVisit)) {
+                inputPurposeOfVisit.setError(null)
+            } else {
+                inputPurposeOfVisit.setError(getString(R.string.error_empty_purpose_of_visit))
+                return false
+            }
+
+            if (validator.isInputValid(countryContactName)) {
+                inputCountryContactName.setError(null)
+            } else {
+                inputCountryContactName.setError(getString(R.string.error_empty_country_contact_name))
+                return false
+            }
+
+            if (validator.isInputValid(relationshipWithHost)) {
+                inputRelationshipWithHost.setError(null)
+            } else {
+                inputRelationshipWithHost.setError(
+                    getString(R.string.error_empty_relationship_with_host)
+                )
+                return false
+            }
+
+            if (validator.isInputValid(addressOrHotelConfirmation)) {
+                inputAddressOrHotelConfirmation.setError(null)
+            } else {
+                inputAddressOrHotelConfirmation.setError(
+                    getString(R.string.error_empty_address_or_hotel_confirmation)
+                )
+                return false
+            }
+
+            if (validator.isInputValid(voucherArea)) {
+                inputVoucherArea.setError(null)
+            } else {
+                inputVoucherArea.setError(getString(R.string.error_empty_voucher_area))
+                return false
+            }
+
+            with(docProfilePic) {
+                if (isYes()) {
+                    if (validator.isInputValid(profileImage)) {
+                        setError(null)
+                    } else {
+                        setError(getString(R.string.error_profile_image))
+                        return false
+                    }
+                }
+            }
+
+            with(docPassport) {
+                if (isYes()) {
+                    if (validator.isInputValid(passport)) {
+                        setError(null)
+                    } else {
+                        setError(getString(R.string.error_passport_image))
+                        return false
+                    }
+                }
+            }
+
+            with(docPreviousPassport) {
+                if (isYes()) {
+                    if (validator.isInputValid(previousPassport)) {
+                        setError(null)
+                    } else {
+                        setError(getString(R.string.error_previous_passport_image))
+                        return false
+                    }
+                }
+            }
+
+            with(docLongTermFd) {
+                if (isYes()) {
+                    if (validator.isInputValid(longTermFd)) {
+                        setError(null)
+                    } else {
+                        setError(getString(R.string.error_long_term_fd))
+                        return false
+                    }
+                }
+            }
+
+            with(docIncomeTaxReturns) {
+                if (isYes()) {
+                    if (validator.isInputValid(incomeTaxReturns)) {
+                        setError(null)
+                    } else {
+                        setError(getString(R.string.error_income_tax_returns))
+                        return false
+                    }
+                }
+            }
+
+            with(docLetterOfInvitation) {
+                if (isYes()) {
+                    if (validator.isInputValid(letterOfInvitation)) {
+                        setError(null)
+                    } else {
+                        setError(getString(R.string.error_letter_of_invitation))
+                        return false
+                    }
+                }
+            }
         }
 
         return true

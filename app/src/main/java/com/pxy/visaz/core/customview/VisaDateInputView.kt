@@ -47,6 +47,9 @@ class VisaDateInputView @JvmOverloads constructor(
 
     fun setError(error: String?) {
         binding.textInputLayout.error = error
+        if (error == null){
+            binding.textInputEditText.clearFocus()
+        }
     }
 
     fun setText(text: String) {

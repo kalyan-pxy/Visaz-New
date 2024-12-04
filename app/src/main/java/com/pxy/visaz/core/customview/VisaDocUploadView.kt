@@ -30,11 +30,12 @@ class VisaDocUploadView @JvmOverloads constructor(
                 } else {
                     tvOptionHeader.visibility = GONE
                 }
-                val conditionRequired = getBoolean(R.styleable.VisaDocUploadView_conditionRequired, true)
+                val conditionRequired =
+                    getBoolean(R.styleable.VisaDocUploadView_conditionRequired, true)
                 if (conditionRequired) {
                     rgOption.visibility = VISIBLE
                     clDocContainer.visibility = GONE
-                }else{
+                } else {
                     rgOption.visibility = GONE
                     clDocContainer.visibility = VISIBLE
                 }
@@ -81,5 +82,25 @@ class VisaDocUploadView @JvmOverloads constructor(
 
     fun addDocImageClickListener(listener: OnClickListener) {
         binding.clDocContainer.setOnClickListener(listener)
+    }
+
+    fun setError(error: String?) {
+        with(binding.tvError) {
+            if (error != null) {
+                text = error
+                visibility = VISIBLE
+            } else {
+                text = ""
+                visibility = GONE
+            }
+        }
+    }
+
+    fun isYes(): Boolean {
+        return if (binding.rgOption.visibility == VISIBLE) {
+            binding.rbYes.isChecked
+        } else {
+            true
+        }
     }
 }

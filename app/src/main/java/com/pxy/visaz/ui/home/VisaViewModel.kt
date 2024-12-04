@@ -1,5 +1,6 @@
 package com.pxy.visaz.ui.home
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -11,6 +12,7 @@ import com.pxy.visaz.core.model.visa.VisaApplicationModel
 import com.pxy.visaz.core.model.visa.VisaType
 import com.pxy.visaz.data.local.AppPreferenceHelper
 import com.pxy.visaz.domain.interactors.VisaUseCase
+import com.pxy.visaz.ui.applyvisa.VisaSubmitApplicationModel
 import kotlinx.coroutines.launch
 
 class VisaViewModel(private val useCase: VisaUseCase) : BaseViewModel() {
@@ -79,6 +81,10 @@ class VisaViewModel(private val useCase: VisaUseCase) : BaseViewModel() {
 
     fun selectVisaType(vasaType: VisaType) {
         selectedVisaTypeObserver.value = vasaType
+    }
+
+    fun submitVisaApplication(visaSubmitApplicationModel: VisaSubmitApplicationModel) {
+        Log.d("VisaViewModel", "===>>> submitVisaApplication: $visaSubmitApplicationModel")
     }
 
 }

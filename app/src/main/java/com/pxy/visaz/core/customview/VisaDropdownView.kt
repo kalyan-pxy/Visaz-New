@@ -54,6 +54,13 @@ class VisaDropdownView @JvmOverloads constructor(
         binding.autoCompleteTextView.setAdapter(arrayAdapter)
     }
 
+    fun setError(error: String?) {
+        binding.textInputLayout.error = error
+        if (error == null){
+            binding.autoCompleteTextView.clearFocus()
+        }
+    }
+
     fun setText(text: String) {
         binding.autoCompleteTextView.setText(text)
     }

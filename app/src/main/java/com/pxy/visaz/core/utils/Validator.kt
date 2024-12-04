@@ -40,7 +40,7 @@ class Validator {
     // Method to return error message if validation fails for username
     fun getNameError(name: String): String? {
         return when {
-            name.isEmpty() -> "Input cannot be empty"
+            name.isEmpty() -> "Please enter input"
             name.length < 3 -> "Input must be at least 3 characters long"
             else -> null
         }
@@ -49,7 +49,7 @@ class Validator {
     // Method to return error message if validation fails for password
     fun getPasswordError(password: String): String? {
         return when {
-            password.isEmpty() -> "Password cannot be empty"
+            password.isEmpty() -> "Please enter password"
             password.length < 8 -> "Password must be at least 8 characters long"
             !password.contains(Regex(".*[A-Z].*")) -> "Password must contain at least one uppercase letter"
             !password.contains(Regex(".*[a-z].*")) -> "Password must contain at least one lowercase letter"
@@ -76,7 +76,7 @@ class Validator {
     // Method to return error message if email validation fails
     fun getEmailError(email: String): String? {
         return when {
-            email.isEmpty() -> "Email cannot be empty"
+            email.isEmpty() -> "Please enter email"
             !isValidEmail(email) -> "Invalid email format"
             else -> null
         }
@@ -85,7 +85,7 @@ class Validator {
     // Method to return error message if phone number validation fails
     fun getPhoneNumberError(phoneNumber: String): String? {
         return when {
-            phoneNumber.isEmpty() -> "Phone number cannot be empty"
+            phoneNumber.isEmpty() -> "Please enter phone number"
             !isValidPhoneNumber(phoneNumber) -> "Invalid phone number format (must be 10 digits)"
             else -> null
         }
@@ -100,7 +100,7 @@ class Validator {
     // Method to return error message if validation fails for username
     fun getOtpError(otp: String): String? {
         return when {
-            otp.isEmpty() -> "OTP cannot be empty"
+            otp.isEmpty() -> "Please enter OTP"
             otp.length < 6 -> "OTP must be 6 characters long"
             otp.contains(" ") -> "OTP should not contain spaces"
             else -> null
@@ -113,7 +113,46 @@ class Validator {
 
     fun getInputError(input: String?): String? {
         return when {
-            input.isNullOrEmpty() -> "input cannot be empty"
+            input.isNullOrEmpty() -> "Please enter input"
+            else -> null
+        }
+    }
+
+    fun isValidPAN(pan: String): Boolean {
+        val panRegex = Regex("^[A-Z]{5}[0-9]{4}[A-Z]$")
+        return panRegex.matches(pan)
+    }
+
+    fun getPanError(pan: String): String? {
+        return when {
+            pan.isEmpty() -> "Please enter pan number"
+            !isValidPAN(pan) -> "Invalid pan number"
+            else -> null
+        }
+    }
+
+    fun isValidIndianPassport(passport: String): Boolean {
+        val passportRegex = Regex("^[A-Z][0-9]{7}$")
+        return passportRegex.matches(passport)
+    }
+
+    fun getPassportError(passport: String): String? {
+        return when {
+            passport.isEmpty() -> "Please enter passport number"
+            !isValidIndianPassport(passport) -> "Invalid passport number"
+            else -> null
+        }
+    }
+
+    fun isValidAadhaarNumber(aadhaar: String): Boolean {
+        val aadhaarRegex = Regex("^[2-9][0-9]{11}$")
+        return aadhaarRegex.matches(aadhaar)
+    }
+
+    fun getAadhaarError(passport: String): String? {
+        return when {
+            passport.isEmpty() -> "Please enter aadhaar number"
+            !isValidAadhaarNumber(passport) -> "Invalid aadhaar number"
             else -> null
         }
     }

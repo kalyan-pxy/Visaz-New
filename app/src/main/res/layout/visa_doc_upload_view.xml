@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:layout_margin="@dimen/spaceMedium"
-    android:padding="@dimen/spaceSmall"
     android:background="@drawable/bg_doc_image_upload"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="@dimen/spaceSmall"
+    tools:layout_margin="@dimen/spaceMedium">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvOptionHeader"
@@ -72,4 +72,17 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvError"
+        style="?textAppearanceBodySmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:layout_marginTop="@dimen/spaceSmall"
+        android:layout_marginEnd="@dimen/spaceMedium"
+        android:textColor="@color/error"
+        tools:text="error message" />
+
 </LinearLayout>
