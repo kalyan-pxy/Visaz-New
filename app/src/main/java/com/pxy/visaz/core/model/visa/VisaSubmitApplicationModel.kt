@@ -1,4 +1,4 @@
-package com.pxy.visaz.ui.applyvisa
+package com.pxy.visaz.core.model.visa
 
 data class VisaSubmitApplicationModel(
     var travelDate: String,

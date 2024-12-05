@@ -31,15 +31,23 @@ class VisasFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initObservers()
+        initListeners()
         with(binding) {
             layoutHeader.tvTitle.text = getString(R.string.label_visa_list_title)
-            AppPreferenceHelper.user?.let {
-                tvUserName.text = getString(R.string.welcome_user, it.email)
-            }
             requireActivity().initBackNavigationHandler {
                 handleBackPress()
             }
-            visaViewModel.fetchVisas()
+        }
+    }
+
+    private fun initListeners() {
+        with(binding) {
+            tilSearch.setEndIconOnClickListener {
+                val searchText = binding.etSearch.text
+                // Handle search logic here
+                toast("Searching for: $searchText")
+                visaViewModel.searchVisas(searchText.toString())
+            }
         }
     }
 

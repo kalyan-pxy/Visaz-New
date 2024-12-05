@@ -175,6 +175,7 @@
     <string name="error_long_term_fd">Please upload long term FD doc image</string>
     <string name="error_income_tax_returns">Please upload income tax return doc image</string>
     <string name="error_letter_of_invitation">Please upload letter of invitation doc image</string>
+    <string name="search_country">Search country</string>
 
     <string-array name="gender">
         <item>Male</item>

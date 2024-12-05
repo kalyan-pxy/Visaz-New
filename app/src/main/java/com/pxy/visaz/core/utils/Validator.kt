@@ -1,7 +1,5 @@
 package com.pxy.visaz.core.utils
 
-import com.pxy.visaz.ui.applyvisa.VisaSubmitApplicationModel
-
 class Validator {
 
     // Method to validate the username

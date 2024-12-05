@@ -22,6 +22,7 @@ import com.pxy.visaz.core.extension.showDatePicker
 import com.pxy.visaz.core.extension.uriToFilePath
 import com.pxy.visaz.core.model.visa.Country
 import com.pxy.visaz.core.model.visa.VisaApplicationModel
+import com.pxy.visaz.core.model.visa.VisaSubmitApplicationModel
 import com.pxy.visaz.core.utils.Validator
 import com.pxy.visaz.databinding.FragmentVisaSubmitFormBinding
 import com.pxy.visaz.ui.home.VisaViewModel

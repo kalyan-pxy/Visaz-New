@@ -125,6 +125,40 @@
         <item name="endIconTint">?attr/colorOnSurface</item>
     </style>
 
+    <style name="SearchInputStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <!-- Box stroke color when the field is focused -->
+        <item name="boxStrokeColor">@null</item>
+
+        <!-- Stroke width when the field is focused -->
+        <item name="boxStrokeWidthFocused">1dp</item>
+
+        <!-- Stroke width when the field is not focused -->
+        <item name="boxStrokeWidth">1dp</item>
+
+        <!-- Hint text color -->
+        <item name="hintTextColor">?attr/colorOnSurfaceVariant</item>
+
+        <!-- Text color inside the TextInputEditText -->
+        <item name="android:textColor">?attr/colorOnSurface</item>
+
+        <!-- Helper/error message text color -->
+        <item name="helperTextTextColor">?attr/colorOnSurfaceVariant</item>
+
+        <!-- Error text color -->
+        <item name="errorTextColor">?attr/colorError</item>
+
+        <!-- Error icon tint color -->
+        <item name="errorIconTint">?attr/colorError</item>
+
+        <!-- Counter text color -->
+        <item name="counterTextColor">?attr/colorOnSurfaceVariant</item>
+
+        <!-- Counter overflow text color (when max characters exceeded) -->
+        <item name="counterOverflowTextColor">?attr/colorError</item>
+
+    </style>
+
     <style name="AppDropdownMenu" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
     </style>
 

@@ -5,20 +5,20 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.pxy.visaz.core.BaseViewModel
-import com.pxy.visaz.core.model.visa.VisaApplicationSubmitModel
-import com.pxy.visaz.domain.model.request.SubmitVisaApplicationRequestModel
 import com.pxy.visaz.core.model.visa.VisaApplicationDetails
 import com.pxy.visaz.core.model.visa.VisaApplicationModel
+import com.pxy.visaz.core.model.visa.VisaApplicationSubmitModel
+import com.pxy.visaz.core.model.visa.VisaSubmitApplicationModel
 import com.pxy.visaz.core.model.visa.VisaType
 import com.pxy.visaz.data.local.AppPreferenceHelper
 import com.pxy.visaz.domain.interactors.VisaUseCase
-import com.pxy.visaz.ui.applyvisa.VisaSubmitApplicationModel
 import kotlinx.coroutines.launch
 
 class VisaViewModel(private val useCase: VisaUseCase) : BaseViewModel() {
 
     val logoutObserver: MutableLiveData<Boolean> = MutableLiveData()
     val visasObserver: MutableLiveData<List<VisaApplicationModel>?> = MutableLiveData()
+    val visasObserverFromResponse: MutableLiveData<List<VisaApplicationModel>?> = MutableLiveData()
 
     val selectedVisaTypeObserver: MutableLiveData<VisaType?> = MutableLiveData()
     val submitVisaApplicationObserver: MutableLiveData<VisaApplicationSubmitModel?> =
@@ -32,6 +32,10 @@ class VisaViewModel(private val useCase: VisaUseCase) : BaseViewModel() {
         logoutObserver.value = true
     }
 
+    init {
+        fetchVisas()
+    }
+
     fun fetchVisas() {
         _loaderObserver.value = true
         viewModelScope.launch {
@@ -39,6 +43,7 @@ class VisaViewModel(private val useCase: VisaUseCase) : BaseViewModel() {
             _loaderObserver.value = false
             if (result.isSuccessful) {
                 visasObserver.value = result.model
+                visasObserverFromResponse.value = result.model
             } else {
                 _errorObserver.value = result.errorModel
             }
@@ -85,6 +90,14 @@ class VisaViewModel(private val useCase: VisaUseCase) : BaseViewModel() {
 
     fun submitVisaApplication(visaSubmitApplicationModel: VisaSubmitApplicationModel) {
         Log.d("VisaViewModel", "===>>> submitVisaApplication: $visaSubmitApplicationModel")
+    }
+
+    fun searchVisas(toString: String) {
+        visasObserverFromResponse.value?.let {
+            visasObserver.value = it.filter { visa ->
+                visa.name.contains(toString, true)
+            }
+        }
     }
 
 }
