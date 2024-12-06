@@ -1,4 +1,4 @@
-package com.pxy.visaz.core
+package com.pxy.visaz.core.utils
 
 object AppConstants {
     const val EXTRA_USER_NAME = "ExtraUserName"
@@ -12,4 +12,6 @@ object AppConstants {
 
     const val BACK_BUTTON_DELAY_TIMER = 2000.toLong()
 
+    const val DOC_TYPE_PDF = "application/pdf"
+    const val DOC_TYPE_IMAGE = "image/*"
 }

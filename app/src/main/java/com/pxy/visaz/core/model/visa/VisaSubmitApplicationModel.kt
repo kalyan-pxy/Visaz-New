@@ -29,11 +29,11 @@ data class VisaSubmitApplicationModel(
     var relationshipWithHost: String,
     var addressOrHotelConfirmation: String,
     var voucherArea: String,
-    var profileImage: String,
-    var passport: String,
-    var previousPassport: String,
-    var longTermFd: String,
-    var incomeTaxReturns: String,
-    var letterOfInvitation: String
+    var profileImagePath: String,
+    var docPassportFrontPath: String,
+    var docPassportBackPath: String,
+    val docPanCardPath: String,
+    val docRoundTripTicketPath: String,
+    val docHotelBookingPath: String
 )
 

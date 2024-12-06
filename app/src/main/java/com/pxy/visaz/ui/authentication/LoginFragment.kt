@@ -14,7 +14,7 @@ import com.google.android.gms.auth.api.identity.Identity
 import com.google.android.gms.auth.api.identity.SignInClient
 import com.google.android.gms.common.api.ApiException
 import com.pxy.visaz.R
-import com.pxy.visaz.core.AppConstants
+import com.pxy.visaz.core.utils.AppConstants
 import com.pxy.visaz.core.BaseFragment
 import com.pxy.visaz.core.extension.highlightTextMatches
 import com.pxy.visaz.core.utils.Validator

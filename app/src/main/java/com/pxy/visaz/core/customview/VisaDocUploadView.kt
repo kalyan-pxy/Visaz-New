@@ -103,4 +103,22 @@ class VisaDocUploadView @JvmOverloads constructor(
             true
         }
     }
+
+    fun setTitle(title: String) {
+        with(binding) {
+            tvOptionHeader.text = title
+        }
+    }
+
+    fun setPdfFilePath(pdfFilePath: String) {
+        // Save or process the PDF URI and file name
+        docName = pdfFilePath.orEmpty()
+
+        // Optional: Display the file name or a PDF icon in the UI
+        //textViewFileName?.text = fileName
+        binding.ivDocImage.setImageResource(R.drawable.ic_pdf) // Replace with your PDF icon resource
+
+        // Enable or disable UI elements based on the PDF selection
+        //buttonRemovePdf?.isVisible = true
+    }
 }

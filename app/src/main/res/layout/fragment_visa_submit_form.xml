@@ -266,8 +266,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spaceMedium"
-                        android:text="@string/label_india"
                         android:enabled="false"
+                        android:text="@string/label_india"
                         app:visaInputViewTitle="@string/place_of_birth_country" />
 
                     <com.pxy.visaz.core.customview.VisaInputView
@@ -373,44 +373,47 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spaceMedium"
                         app:conditionRequired="false"
-                        app:visaDocUploadViewTitle="@string/doc_profile_image" />
+                        app:visaDocUploadViewTitle="@string/doc_traveler_photo" />
 
                     <com.pxy.visaz.core.customview.VisaDocUploadView
-                        android:id="@+id/docPassport"
+                        android:id="@+id/docPassportFront"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spaceMedium"
                         app:conditionRequired="false"
-                        app:visaDocUploadViewTitle="@string/doc_current_passport" />
+                        app:visaDocUploadViewTitle="@string/doc_passport_front" />
 
                     <com.pxy.visaz.core.customview.VisaDocUploadView
-                        android:id="@+id/docPreviousPassport"
+                        android:id="@+id/docPassportBack"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spaceMedium"
-                        app:visaDocUploadViewTitle="@string/doc_previous_passport_exhibiting" />
+                        app:conditionRequired="false"
+                        app:visaDocUploadViewTitle="@string/doc_passport_front" />
 
                     <com.pxy.visaz.core.customview.VisaDocUploadView
-                        android:id="@+id/docLongTermFd"
+                        android:id="@+id/docPanCard"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spaceMedium"
-                        app:visaDocUploadViewTitle="@string/doc_long_term_fd" />
+                        app:conditionRequired="false"
+                        app:visaDocUploadViewTitle="@string/doc_pan_card" />
 
                     <com.pxy.visaz.core.customview.VisaDocUploadView
-                        android:id="@+id/docIncomeTaxReturns"
+                        android:id="@+id/docRoundTripTicket"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spaceMedium"
-                        app:visaDocUploadViewTitle="@string/doc_income_tax_returns" />
+                        app:conditionRequired="false"
+                        app:visaDocUploadViewTitle="@string/doc_round_trip_flight_ticket" />
 
                     <com.pxy.visaz.core.customview.VisaDocUploadView
-                        android:id="@+id/docLetterOfInvitation"
+                        android:id="@+id/docHotelBookingDoc"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spaceMedium"
-                        app:visaDocUploadViewTitle="@string/doc_letter_of_invitation" />
-
+                        app:conditionRequired="false"
+                        app:visaDocUploadViewTitle="@string/doc_hotel_booking" />
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>

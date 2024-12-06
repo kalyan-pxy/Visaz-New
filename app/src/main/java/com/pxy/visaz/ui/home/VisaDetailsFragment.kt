@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.pxy.visaz.R
-import com.pxy.visaz.core.AppConstants
+import com.pxy.visaz.core.utils.AppConstants
 import com.pxy.visaz.core.PopBackFragment
 import com.pxy.visaz.core.extension.forEachApply
 import com.pxy.visaz.core.extension.formatPrice

@@ -10,11 +10,10 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.bluboy.android.ui.support.VisaListAdapter
 import com.pxy.visaz.R
-import com.pxy.visaz.core.AppConstants
+import com.pxy.visaz.core.utils.AppConstants
 import com.pxy.visaz.core.BaseFragment
 import com.pxy.visaz.core.extension.initBackNavigationHandler
 import com.pxy.visaz.core.model.visa.VisaApplicationModel
-import com.pxy.visaz.data.local.AppPreferenceHelper
 import com.pxy.visaz.databinding.FragmentVisasBinding
 import com.pxy.visaz.ui.authentication.PreAuthActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel

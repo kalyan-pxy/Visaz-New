@@ -99,11 +99,11 @@ class VisaApplicationCardView @JvmOverloads constructor(
             )
         ) {
             if (visaModel?.profileImageBase64.isNullOrEmpty()) {
-                context.toast(context.getString(R.string.error_profile_image))
+                context.toast(context.getString(R.string.error_doc_traveler_photo))
                 return null
             }
             if (visaModel?.passportImageBase64.isNullOrEmpty()) {
-                context.toast(context.getString(R.string.error_passport_image))
+                context.toast(context.getString(R.string.error_doc_passport_front))
                 return null
             }
             return visaModel.apply {

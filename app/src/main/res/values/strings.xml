@@ -51,8 +51,6 @@
     <string name="label_application_form">Application Form</string>
     <string name="label_submit_application">Submit Application</string>
     <string name="label_upload_visa_required_images">Upload Visa Required Images</string>
-    <string name="label_profile_image_upload">Click here to upload profile image</string>
-    <string name="label_passport_image_upload">Click here to upload passport image</string>
 
     <string name="visa_basic_details_display">Date: %1$s\nMother Name: %2$s\nFather Name: %3$s\nGender: %4$s\nCountry: %5$s</string>
     <string name="label_documents_required">Documents required</string>
@@ -62,8 +60,6 @@
     <string name="header_traveller">Traveller %1$d</string>
     <string name="visa_application_submitted_successfully">Visa application submitted successfully</string>
     <string name="error_visa_input">Please check all mandatory inputs</string>
-    <string name="error_profile_image">Please upload profile image</string>
-    <string name="error_passport_image">Please upload passport doc image</string>
     <string name="account_settings">Account settings</string>
 
     <string name="name">Name</string>
@@ -125,7 +121,7 @@
     <string name="doc_photocopy_of_ticket">Photocopy of  Airline confirmed onward / return ticket</string>
     <string name="doc_photocopy_of_ticket_note1">Photo should be coloured &amp; clear, size 4.3 cms x 5.5 cms. AS REQUIRED TO CONFIRM PROOF OF ELIGIBILITY - Tick if enclosed Applicant Application Centre</string>
 
-    <string name="upload_doc">Upload Document</string>
+    <string name="upload_doc">Choose File</string>
 
     <!--if yes then upload doc-->
     <string name="doc_previous_passport_exhibiting">Previous passport exhibiting previous travel</string>
@@ -171,11 +167,29 @@
     <string name="error_empty_relationship_with_host">Please enter relationship with host</string>
     <string name="error_empty_address_or_hotel_confirmation">Please enter address</string>
     <string name="error_empty_voucher_area">Please enter voucher area</string>
+
+    <string name="label_profile_image_upload">Click here to upload profile image</string>
+    <string name="label_passport_image_upload">Click here to upload passport image</string>
     <string name="error_previous_passport_image">Please upload your previous passport doc image</string>
     <string name="error_long_term_fd">Please upload long term FD doc image</string>
     <string name="error_income_tax_returns">Please upload income tax return doc image</string>
     <string name="error_letter_of_invitation">Please upload letter of invitation doc image</string>
     <string name="search_country">Search country</string>
+
+    <string name="doc_traveler_photo">Traveler Photo %d</string>
+    <string name="doc_passport_front">Front Passport Traveler %d</string>
+    <string name="doc_passport_back">Back Passport Traveler %d</string>
+    <string name="doc_pan_card">India PAN Card Traveler %d</string>
+    <string name="doc_round_trip_flight_ticket">Round Trip Flight Ticket Traveler %d</string>
+    <string name="doc_hotel_booking">Hotel Booking Traveler %d</string>
+
+    <string name="error_doc_traveler_photo">Please upload traveler photo</string>
+    <string name="error_doc_passport_front">Please upload passport front document</string>
+    <string name="error_doc_passport_back">Please upload passport back document</string>
+    <string name="error_doc_pan_card">Please upload pan card document</string>
+    <string name="error_doc_round_trip_flight_ticket">Please upload round trip flight ticket document</string>
+    <string name="error_doc_hotel_booking">Please upload hotel booking document</string>
+
 
     <string-array name="gender">
         <item>Male</item>

@@ -14,7 +14,6 @@ import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointBackward
 import com.google.firebase.util.nextAlphanumericString
 import com.pxy.visaz.R
-import com.pxy.visaz.core.AppConstants
 import com.pxy.visaz.core.PopBackFragment
 import com.pxy.visaz.core.customview.VisaDocUploadView
 import com.pxy.visaz.core.extension.copyFileToAppStorage
@@ -23,6 +22,9 @@ import com.pxy.visaz.core.extension.uriToFilePath
 import com.pxy.visaz.core.model.visa.Country
 import com.pxy.visaz.core.model.visa.VisaApplicationModel
 import com.pxy.visaz.core.model.visa.VisaSubmitApplicationModel
+import com.pxy.visaz.core.utils.AppConstants
+import com.pxy.visaz.core.utils.AppConstants.DOC_TYPE_IMAGE
+import com.pxy.visaz.core.utils.AppConstants.DOC_TYPE_PDF
 import com.pxy.visaz.core.utils.Validator
 import com.pxy.visaz.databinding.FragmentVisaSubmitFormBinding
 import com.pxy.visaz.ui.home.VisaViewModel
@@ -96,12 +98,12 @@ class VisaSubmitFormFragment : PopBackFragment() {
                 val voucherArea = inputVoucherArea.getText()
 
                 //documents
-                val profileImage = docProfilePic.getImagePath()
-                val passport = docPassport.getImagePath()
-                val previousPassport = docPreviousPassport.getImagePath()
-                val longTermFd = docLongTermFd.getImagePath()
-                val incomeTaxReturns = docIncomeTaxReturns.getImagePath()
-                val letterOfInvitation = docLetterOfInvitation.getImagePath()
+                val profileImagePath = docProfilePic.getImagePath()
+                val docPassportFrontPath = docPassportFront.getImagePath()
+                val docPassportBackPath = docPassportBack.getImagePath()
+                val docPanCardPath = docPanCard.getImagePath()
+                val docRoundTripTicketPath = docRoundTripTicket.getImagePath()
+                val docHotelBookingPath = docHotelBookingDoc.getImagePath()
                 val isValid = validateVisaApplication(
                     travelDate,
                     nationality,
@@ -131,12 +133,12 @@ class VisaSubmitFormFragment : PopBackFragment() {
                     relationshipWithHost,
                     addressOrHotelConfirmation,
                     voucherArea,
-                    profileImage,
-                    passport,
-                    previousPassport,
-                    longTermFd,
-                    incomeTaxReturns,
-                    letterOfInvitation
+                    profileImagePath,
+                    docPassportFrontPath,
+                    docPassportBackPath,
+                    docPanCardPath,
+                    docRoundTripTicketPath,
+                    docHotelBookingPath
                 )
                 if (isValid) {
                     val model = VisaSubmitApplicationModel(
@@ -168,12 +170,12 @@ class VisaSubmitFormFragment : PopBackFragment() {
                         relationshipWithHost,
                         addressOrHotelConfirmation,
                         voucherArea,
-                        profileImage,
-                        passport,
-                        previousPassport,
-                        longTermFd,
-                        incomeTaxReturns,
-                        letterOfInvitation
+                        profileImagePath,
+                        docPassportFrontPath,
+                        docPassportBackPath,
+                        docPanCardPath,
+                        docRoundTripTicketPath,
+                        docHotelBookingPath
                     )
                     visaViewModel.submitVisaApplication(model)
                     toast(getString(R.string.visa_application_submitted_successfully))
@@ -199,27 +201,27 @@ class VisaSubmitFormFragment : PopBackFragment() {
 
             docProfilePic.addDocImageClickListener {
                 selectedViewYesNoDocUpload = docProfilePic
-                pickImage.launch("image/*")
+                pickImage.launch(DOC_TYPE_IMAGE)
             }
-            docPassport.addDocImageClickListener {
-                selectedViewYesNoDocUpload = docPassport
-                pickImage.launch("image/*")
+            docPassportFront.addDocImageClickListener {
+                selectedViewYesNoDocUpload = docPassportFront
+                pickPdf.launch(DOC_TYPE_PDF)
             }
-            docPreviousPassport.addDocImageClickListener {
-                selectedViewYesNoDocUpload = docPreviousPassport
-                pickImage.launch("image/*")
+            docPassportBack.addDocImageClickListener {
+                selectedViewYesNoDocUpload = docPassportBack
+                pickPdf.launch(DOC_TYPE_PDF)
             }
-            docLongTermFd.addDocImageClickListener {
-                selectedViewYesNoDocUpload = docLongTermFd
-                pickImage.launch("image/*")
+            docPanCard.addDocImageClickListener {
+                selectedViewYesNoDocUpload = docPanCard
+                pickPdf.launch(DOC_TYPE_PDF)
             }
-            docIncomeTaxReturns.addDocImageClickListener {
-                selectedViewYesNoDocUpload = docIncomeTaxReturns
-                pickImage.launch("image/*")
+            docRoundTripTicket.addDocImageClickListener {
+                selectedViewYesNoDocUpload = docRoundTripTicket
+                pickPdf.launch(DOC_TYPE_PDF)
             }
-            docLetterOfInvitation.addDocImageClickListener {
-                selectedViewYesNoDocUpload = docLetterOfInvitation
-                pickImage.launch("image/*")
+            docHotelBookingDoc.addDocImageClickListener {
+                selectedViewYesNoDocUpload = docHotelBookingDoc
+                pickPdf.launch(DOC_TYPE_PDF)
             }
         }
     }
@@ -253,12 +255,12 @@ class VisaSubmitFormFragment : PopBackFragment() {
         relationshipWithHost: String,
         addressOrHotelConfirmation: String,
         voucherArea: String,
-        profileImage: String,
-        passport: String,
-        previousPassport: String,
-        longTermFd: String,
-        incomeTaxReturns: String,
-        letterOfInvitation: String
+        profileImagePath: String,
+        docPassportFrontPath: String,
+        docPassportBackPath: String,
+        docPanCardPath: String,
+        docRoundTripTicketPath: String,
+        docHotelBookingPath: String,
     ): Boolean {
         with(binding) {
             if (validator.isInputValid(travelDate)) {
@@ -483,65 +485,65 @@ class VisaSubmitFormFragment : PopBackFragment() {
 
             with(docProfilePic) {
                 if (isYes()) {
-                    if (validator.isInputValid(profileImage)) {
+                    if (validator.isInputValid(profileImagePath)) {
                         setError(null)
                     } else {
-                        setError(getString(R.string.error_profile_image))
+                        setError(getString(R.string.error_doc_traveler_photo))
                         return false
                     }
                 }
             }
 
-            with(docPassport) {
+            with(docPassportFront) {
                 if (isYes()) {
-                    if (validator.isInputValid(passport)) {
+                    if (validator.isInputValid(docPassportFrontPath)) {
                         setError(null)
                     } else {
-                        setError(getString(R.string.error_passport_image))
+                        setError(getString(R.string.error_doc_passport_front))
                         return false
                     }
                 }
             }
 
-            with(docPreviousPassport) {
+            with(docPassportBack) {
                 if (isYes()) {
-                    if (validator.isInputValid(previousPassport)) {
+                    if (validator.isInputValid(docPassportBackPath)) {
                         setError(null)
                     } else {
-                        setError(getString(R.string.error_previous_passport_image))
+                        setError(getString(R.string.error_doc_passport_back))
                         return false
                     }
                 }
             }
 
-            with(docLongTermFd) {
+            with(docPanCard) {
                 if (isYes()) {
-                    if (validator.isInputValid(longTermFd)) {
+                    if (validator.isInputValid(docPanCardPath)) {
                         setError(null)
                     } else {
-                        setError(getString(R.string.error_long_term_fd))
+                        setError(getString(R.string.error_doc_pan_card))
                         return false
                     }
                 }
             }
 
-            with(docIncomeTaxReturns) {
+            with(docRoundTripTicket) {
                 if (isYes()) {
-                    if (validator.isInputValid(incomeTaxReturns)) {
+                    if (validator.isInputValid(docRoundTripTicketPath)) {
                         setError(null)
                     } else {
-                        setError(getString(R.string.error_income_tax_returns))
+                        setError(getString(R.string.error_doc_round_trip_flight_ticket))
                         return false
                     }
                 }
             }
 
-            with(docLetterOfInvitation) {
+            with(docHotelBookingDoc) {
                 if (isYes()) {
-                    if (validator.isInputValid(letterOfInvitation)) {
+                    if (validator.isInputValid(docHotelBookingPath)) {
                         setError(null)
                     } else {
-                        setError(getString(R.string.error_letter_of_invitation))
+                        setError(getString(R.string.error_doc_hotel_booking))
                         return false
                     }
                 }
@@ -599,6 +601,15 @@ class VisaSubmitFormFragment : PopBackFragment() {
                 tvContactInCountry.text = getString(R.string.contact_in_country, it.name)
             }
         }
+        with(binding) {
+            docProfilePic.setTitle(getString(R.string.doc_traveler_photo, 1))
+            docPassportFront.setTitle(getString(R.string.doc_passport_front, 1))
+            docPassportBack.setTitle(getString(R.string.doc_passport_back, 1))
+            docPanCard.setTitle(getString(R.string.doc_pan_card, 1))
+            docRoundTripTicket.setTitle(getString(R.string.doc_round_trip_flight_ticket, 1))
+            docHotelBookingDoc.setTitle(getString(R.string.doc_hotel_booking, 1))
+        }
+
     }
 
     private fun initCountryDropDown() {
@@ -659,6 +670,23 @@ class VisaSubmitFormFragment : PopBackFragment() {
                 selectedViewYesNoDocUpload?.setImageUri(profileImageUri, randomImageName)
             }
         }
+
+    // Register for activity result to get a PDF from storage
+    private val pickPdf =
+        registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+            uri?.let { pdfUri ->
+                val randomFileName = Random.nextAlphanumericString(10) + ".pdf"
+                val pdfFilePath = uriToFilePath(pdfUri)?.let {
+                    copyFileToAppStorage(
+                        requireContext(),
+                        it,
+                        randomFileName
+                    )
+                }
+                selectedViewYesNoDocUpload?.setPdfFilePath(pdfFilePath.orEmpty())
+            }
+        }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -2,9 +2,7 @@ package com.pxy.visaz.setup
 
 import android.content.Context
 import android.content.Intent
-import android.widget.Toast
-import com.pxy.visaz.R
-import com.pxy.visaz.core.AppConstants
+import com.pxy.visaz.core.utils.AppConstants
 import com.pxy.visaz.data.local.AppPreferenceHelper
 import com.pxy.visaz.ui.authentication.PreAuthActivity
 import okhttp3.Interceptor
